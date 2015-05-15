@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<document xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd" name="myDoc">
+    <title>Stack Layout Document</title>
+
+    <section name="mySec">
+        <title>Stack Layout</title>
+
+        <!-- Define a stack layout with default orientation (vertical) -->
+        <stack name="myStackD">
+            <p>Hi</p>
+            <p>Bye</p>
+        </stack>
+
+        <!-- Define a stack layout with horizontal orientation -->
+        <stack name="myStackH" orientation="horizontal">
+            <p>Ni hao</p>
+            <p>Ciao</p>
+        </stack>
+
+        <!-- Define a stack layout with vertical orientation -->
+        <stack name="myStackV" orientation="vertical">
+            <p>Bonjour</p>
+            <p>Au revoir</p>
+        </stack>
+    </section>
+</document>

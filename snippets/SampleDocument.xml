@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<document xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd" name="myDoc">
+    <title>Sample Document</title>
+
+    <section name="mySec">
+        <!--
+            Test concatenation of text nodes to form a complete unformatted text string. Also tests propagation
+            of section title to section model.
+        -->
+        <title>Introduction <![CDATA[To < And > Operators]]> In Math</title>
+
+        <!--
+            Add a paragraph which tests handling of nested styles as well as leading and trailing spaces, including:
+            - redundant whitespace
+            - leading whitespace on paragraph itself (should be removed)
+            - trailing whitespace on paragraph itself (should be removed)
+            - nested italics within bold (today should be bold and italic).
+            - no leading space on bold, nor trailing space.
+            - space between bold and bold-italic text.
+            - no space between Name= and underline span.
+            - leading space inside a span.
+            - trailing space inside a span.
+        -->
+        <p>
+            Hello     world! How are <b>you   <i>today</i></b>? Name=<u>Fred</u>. What about<i>   leading space</i>?
+            What about <i>trailing   </i>space? And <link url="http://www.quanser.com">hyperlinks</link>?
+        </p>
+
+        <!--- Insert a page break to test the default paginator -->
+        <pageBreak/>
+
+        <!--
+            Add a paragraph which tests handling of the xml:space attribute on inline content to see
+            if the xml:space scope is properly terminated (i.e. that it doesn't stay in effect until
+            the end of the paragraph rather than ending as soon as the </b> tag is encountered.
+        -->
+        <p>
+            Hello   <b><![CDATA[   there   ]]></b>   everyone!
+        </p>
+
+        <!--
+            Add a paragraph which tests handling of the xml:space attribute on both the paragraph
+            and on inline content to see if the xml:space scope is properly inherited.
+        -->
+        <p><![CDATA[
+            Hello   ]]><b>   there   </b><![CDATA[   everyone!
+        ]]></p>
+
+        <!--
+            Add a button to test the use of a callback. It also tests whether space is properly
+            preserved in the callback code so that line number information is preserved. Note that
+            no CDATA is required because the xml:space attribute defaults to preserve based on the
+            schema definition for script content (see QDocument.xsd).
+        -->
+        <button name="myButton" content="Click Me!">
+            <onClick>
+                mySlider.Value = 0.2;
+            </onClick>
+        </button>
+
+        <!--- Add a button which uses the compact form of a callback. -->
+        <button name="myCompactButton" content="Click now!" onClick="myCompactSlider.Value = -0.6"/>
+
+        <!--- Add a slider -->
+        <slider name="mySlider" value="0.5">
+            <onValueChanged>
+                print("New value: " .. tostring(value));
+            </onValueChanged>
+        </slider>
+
+        <!--- Add a compact slider -->
+        <slider name="myCompactSlider" min="-1.5" max="+1.5" value="0.3" onValueChanged="mySlider.Value = 0.7;"/>
+
+        <!-- Add circular slider -->
+        <slider name="myCircularSlider" onValueChanged="myCircularSlider.Value = value + 0.1"/>
+    </section>
+</document>

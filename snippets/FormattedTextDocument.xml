@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<document xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd" name="myDoc">
+    <title>Formatted Text Document</title>
+
+    <section name="mySec">
+        <title>Formatted Text Test</title>
+
+        <!-- Define a button which will change the formatted text -->
+        <button name="myButton">
+            <onClick><![CDATA[
+                myLabel.FormattedText = "Goodbye <i><b>every</b>one</i>!";
+                ]]>
+            </onClick>
+        </button>
+
+        <!-- Define a label -->
+        <label name="myLabel">Hello <b>world</b>!</label>
+
+        <!--- Define a button which changes the text without formatting -->
+        <button name="mySimpleButton" onClick="myLabel.Text = 'Simple text';"/>
+
+        <!-- Define a paragraph containing an image -->
+        <p>
+            Look at this cool picture: <image src="nimaPicture.jpg" alt="Nima Selfie"/>.
+        </p>
+
+        <!-- Define a paragraph containing an image with an end tag (TODO: test changed since no longer allowed) -->
+        <p>
+            Look at this cool picture: <image src="camPicture.jpg" alt="Cameron Selfie"/>.
+        </p>
+
+        <!-- Define a paragraph containing self-closing tags (which do not become spans as they do nothing) -->
+        <p>
+            Bold: <b/>, Italic: <i/>, Underline: <u/>, Font: <font name="Foo"/>, Link: <link url="Bar"/>.
+        </p>
+
+        <!-- Define a paragraph containing one of each tag. -->
+        <p>
+            <b>bold</b>
+            <bold>bold</bold>
+            <i>italic</i>
+            <italic>italic</italic>
+            <u>underline</u>
+            <underline>underline</underline>
+            <sup>superscript</sup>
+            <superscript>superscript</superscript>
+            <sub>subscript</sub>
+            <subscript>subscript</subscript>
+            <font name="Arial">font</font>
+            <size scale="0.5">size</size>
+            <foreground color="red">foreground</foreground>
+            <background color="blue">background</background>
+            <callout ref="mySec.mySimpleButton">callout</callout>
+            <crossRef ref="mySec.myLabel">ref</crossRef> 
+            <link url="http://www.quanser.com">link</link>
+            <image src="foo.gif" scale="1.7" baseline="0.2" alt="bar"/>
+        </p>
+    </section>
+</document>

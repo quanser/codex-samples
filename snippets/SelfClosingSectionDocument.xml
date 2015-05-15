@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd" name="myDoc">
+    <title>Self-Closing Section Document</title>
+
+    <section name="mySec">
+        <title>Level 1 Section</title>
+        <section name="mySubsec"/>
+    </section>
+</document>

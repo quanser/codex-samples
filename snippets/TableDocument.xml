@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<document xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd" name="myDoc">
+    <title>Table Document</title>
+
+    <section name="mySec">
+        <title>Table Test</title>
+
+        <!-- Table with header row -->
+        <table name="myTable" grid="true" widths="25% 0.75">
+            <head>
+                <column>
+                    <p>Name</p>
+                </column>
+                <column>
+                    <p>Description</p>
+                </column>
+            </head>
+            <row>
+                <column>
+                    <p>Cameron</p>
+                </column>
+                <column>
+                    <p>Mobile manager</p>
+                </column>
+            </row>
+            <row>
+                <column>
+                    <p>Safwan</p>
+                </column>
+                <column>
+                    <p>Mobile guru</p>
+                </column>
+            </row>
+            <row>
+                <column>
+                    <p>Nima</p>
+                </column>
+                <column>
+                    <p>Mobile engineer</p>
+                </column>
+            </row>
+            <row>
+                <column>
+                    <p>Dan</p>
+                </column>
+                <column>
+                    <p>Mobile minion</p>
+                </column>
+            </row>
+        </table>
+
+        <!-- Table without header row -->
+        <table name="myHeadlessTable">
+            <row>
+                <column>
+                    <p>Cell (1,1)</p>
+                </column>
+                <column>
+                    <p>Cell (1,2)</p>
+                </column>
+            </row>
+            <row>
+                <column columnSpan="2">
+                    <p>Cell (2,1) and (2,2)</p>
+                </column>
+            </row>
+        </table>
+    </section>
+</document>
+
+

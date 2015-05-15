@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<document xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd" name="myDoc">
+    <title>Style Script Document</title>
+
+    <style name="paragraphs">
+        <italic>false</italic>
+    </style>
+
+    <section name="mySec">
+        <title>Style Script Test</title>
+
+        <paragraph name="myPara">
+            Hello world
+        </paragraph>
+
+        <button content="Make Bold" onClick="myPara.Style.Bold = true;"/>
+        <button content="Set Margin" onClick="myPara.Style.MarginLeft = 0.5;"/>
+        <button content="Set Foreground" onClick="myPara.Style.ForegroundColor = color.blue;"/>
+        <button content="Set Align">
+            <onClick>
+                myPara.Style.HorizontalAlignment = "right";
+            </onClick>
+        </button>
+
+        <paragraph name="newPara">
+            Hi there.
+        </paragraph>
+
+        <button content="Copy">
+            <onClick>
+                newPara.Style.Bold = myPara.Style.Bold;
+                newPara.Style.MarginLeft = myPara.Style.MarginLeft;
+                newPara.Style.ForegroundColor = myPara.Style.ForegroundColor;
+                newPara.Style.HorizontalAlignment = myPara.Style.HorizontalAlignment;
+            </onClick>
+        </button>
+
+        <button content="Make Italic" onClick="paragraphs.Italic = true;"/>
+    </section>
+
+</document>
+

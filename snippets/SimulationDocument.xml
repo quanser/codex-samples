@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd" name="myDoc">
+    <title>Simulation Document</title>
+
+    <section>
+        <title>Empty Simulation</title>
+
+        <label name="simTime"/>
+
+        <simulation name="mySim" duration="1">
+            <onUpdate>
+                simTime.Text = tostring(time);
+            </onUpdate>
+        </simulation>
+
+        <button name="startSim" content="Start" onClick="mySim:Start();"/>
+    </section>
+
+    <section>
+        <title>Empty Solver</title>
+
+        <label name="simTime"/>
+
+        <simulation name="mySim" duration="1">
+            <solver>
+                <onUpdate>
+                    simTime.Text = tostring(time);
+                </onUpdate>
+            </solver>
+        </simulation>
+
+        <button name="startSim" content="Start" onClick="mySim:Start();"/>
+    </section>
+
+    <section>
+        <title>Constant System</title>
+
+        <simulation name="mySim">
+            <solver>
+                <constant name="constSys" value="3.14 2.72"/>
+                <gain name="gainSys" value="25 -17 0.005"/>
+            </solver>
+        </simulation>
+    </section>
+
+</document>

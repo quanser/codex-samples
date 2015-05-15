@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd" name="myDoc">
+    <title>Divisions Document</title>
+
+    <div name="myDiv">
+        <div name="mySubdiv">
+            <div name="mySubsubdiv">
+            	<p>Hello world</p>
+            </div>
+        </div>
+    </div>
+
+    <section name="mySec">
+    	<title>Section</title>
+    </section>
+</document>

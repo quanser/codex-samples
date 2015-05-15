@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<document xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd" name="myDoc">
+    <title>Text Input Document</title>
+
+    <section name="mySec">
+        <title>Text Input Test</title>
+
+        <!-- Define a multi-line text input field -->
+        <textInput name="myTextInput">
+            <content>
+                This is the default text.
+            </content>
+            <placeholder>
+                This is placeholder text.
+            </placeholder>
+        </textInput>
+
+        <!-- Define a single line text input field -->
+        <textField name="myTextField" content="Default text" placeholder="Placeholder text"/>
+    </section>
+</document>
+

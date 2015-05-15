@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<document xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd" name="myDoc">
+    <title>Toggle Switch Document</title>
+
+    <section name="mySec">
+        <title>Toggle Switch Test</title>
+
+        <!-- Switch with all the default properties -->
+        <toggle name="mySwitch1"/>
+
+        <!-- Switch with custom value property -->
+        <toggle name="mySwitch2" value="true"/>
+
+        <!-- Switch with inline callback -->
+        <toggle name="mySwitch3" onValueChanged="mySwitch1.Value = true"/>
+
+        <!-- Switch with child callback -->
+        <toggle name="mySwitch4">
+            <onValueChanged>
+                mySwitch2.Value = false;
+            </onValueChanged>
+        </toggle>
+
+        <!-- Button setting switch to value which is out of range -->
+        <button onClick="mySwitch3.Value = -1"/>
+    </section>
+</document>
+
+
+
+

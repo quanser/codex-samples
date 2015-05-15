@@ -1,0 +1,686 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd" name="myDoc">
+	<title>Auto-Numbering Document</title>
+	<section>
+		<title>Level 1</title>
+		<equation>a = b + c</equation>
+		<section>
+			<title>Level 2</title>
+			<equation>a = b + c</equation>
+			<section>
+				<title>Level 3</title>
+				<equation>a = b + c</equation>
+				<section>
+					<title>Level 4</title>
+					<equation>a = b + c</equation>
+					<section>
+						<title>Level 5</title>
+						<equation>a = b + c</equation>
+						<section>
+							<title>Level 6</title>
+							<equation>a = b + c</equation>
+							<section>
+								<title>Level 7</title>
+								<equation>a = b + c</equation>
+							</section>
+						</section>
+					</section>
+				</section>
+			</section>
+		</section>
+	</section>
+	<section>
+		<title>Level 1</title>
+		<equation>a = b + c</equation>
+		<section>
+			<title>Level 2</title>
+			<equation>a = b + c</equation>
+			<section>
+				<title>Level 3</title>
+				<equation>a = b + c</equation>
+				<section>
+					<title>Level 4</title>
+					<equation>a = b + c</equation>
+					<section>
+						<title>Level 5</title>
+						<equation>a = b + c</equation>
+						<section>
+							<title>Level 6</title>
+							<equation>a = b + c</equation>
+							<section>
+								<title>Level 7</title>
+								<equation>a = b + c</equation>
+							</section>
+						</section>
+					</section>
+				</section>
+			</section>
+		</section>
+	</section>
+	<section>
+		<title>Leading Decimal Format</title>
+		<style>
+			<counter name="decZero" format="decimalLeadingZero"/>
+		</style>
+		<style name="paragraphs">
+			<increment counter="decZero"/>
+			<numbering counter="decZero" mode="flat" />
+		</style>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+	</section>
+	<section>
+		<title>Lowercase Alphabetic Format</title>
+		<style>
+			<counter name="lowAlpha" format="lowerAlpha"/>
+		</style>
+		<style name="paragraphs">
+			<increment counter="lowAlpha"/>
+			<numbering counter="lowAlpha" mode="flat" />
+		</style>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+	</section>
+	<section>
+		<title>Uppercase Alphabetic Format</title>
+		<style>
+			<counter name="upAlpha" format="upperAlpha"/>
+		</style>
+		<style name="paragraphs">
+			<increment counter="upAlpha"/>
+			<numbering counter="upAlpha" mode="flat" />
+		</style>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+	</section>
+	<section>
+		<title>Lowercase Roman Format</title>
+		<style>
+			<counter name="lowRoman" format="lowerRoman"/>
+		</style>
+		<style name="paragraphs">
+			<increment counter="lowRoman"/>
+			<numbering counter="lowRoman" mode="flat" />
+		</style>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+	</section>
+	<section>
+		<title>Uppercase Roman Format</title>
+		<style>
+			<counter name="upRoman" format="upperRoman"/>
+		</style>
+		<style name="paragraphs">
+			<increment counter="upRoman"/>
+			<numbering counter="upRoman" mode="flat" />
+		</style>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+	</section>
+	<section>
+		<title>Lowercase Greek Format</title>
+		<style>
+			<counter name="lowGreek" format="lowerGreek"/>
+		</style>
+		<style name="paragraphs">
+			<increment counter="lowGreek"/>
+			<numbering counter="lowGreek" mode="flat" />
+		</style>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+	</section>
+	<section>
+		<title>Uppercase Greek Format</title>
+		<style>
+			<counter name="upGreek" format="upperGreek"/>
+		</style>
+		<style name="paragraphs">
+			<increment counter="upGreek"/>
+			<numbering counter="upGreek" mode="flat" />
+		</style>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+		<p>
+			Some auto-numbered text.
+		</p>
+	</section>
+	<section>
+		<title>Black Square Format</title>
+		<style>
+			<counter name="blkSquare" format="blackSquare"/>
+		</style>
+		<style name="paragraphs">
+			<increment counter="blkSquare"/>
+			<numbering counter="blkSquare" mode="flat" />
+		</style>
+		<p>
+			Some bulleted text.
+		</p>
+		<p>
+			Some bulleted text.
+		</p>
+	</section>
+</document>

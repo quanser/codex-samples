@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<document xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd" name="myDoc">
+    <title>Callout Document</title>
+
+    <section name="mySec">
+        <title>Callout Test</title>
+
+        <section name="mySubsec">
+            <title>Introduction</title>
+            <p name="intro">
+                This is the introductory paragraph.
+            </p>
+        </section>
+
+        <p name="first">
+            This is the first paragraph.
+        </p>
+        <p>
+            <!-- Perform a backward reference -->
+            See the <callout ref="mySec.first">first paragraph</callout> in this section for details.
+
+            <!-- Perform a more complicated backward reference -->
+            See the <callout ref="mySec.mySubsec.intro">introductory paragraph</callout> for details.
+
+            <!-- Perform a forward reference -->
+            See the <callout ref="myDoc.glossary">Glossary</callout> for definitions.
+
+            <!-- Perform a more complex forward reference -->
+            See the following <callout ref="myDoc.glossary.definition">definition</callout>.
+
+            <!-- Test reference substitution -->
+            See the <callout ref="mySec.first"/> paragraph.
+        </p>
+    </section>
+    <section name="glossary">
+        <title>Glossary</title>
+
+        <p name="definition">
+            This is my first definition.
+        </p>
+    </section>
+</document>
+

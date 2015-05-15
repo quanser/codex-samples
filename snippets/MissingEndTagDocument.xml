@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<document xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd" name="myDoc">
+    <title>Missing End Tag Document</title>
+
+    <section name="mySec">
+        <title>Missing End Tag Test</title>
+        <p>
+            This paragraph has no ending tag!
+        <p>
+            Here is another paragraph.
+        </p>
+    </section>
+</document>
+

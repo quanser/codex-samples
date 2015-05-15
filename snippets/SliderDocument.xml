@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<document xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd" name="myDoc">
+    <title>Slider Document</title>
+
+    <section name="mySec">
+        <title>Slider Test</title>
+
+        <!-- Slider with all the default properties -->
+        <slider name="mySlider1"/>
+
+        <!-- Slider with custom min/max/value properties -->
+        <slider name="mySlider2" min="-10" max="10" value="5"/>
+
+        <!-- Slider with inline callback -->
+        <slider name="mySlider3" onValueChanged="mySlider1.Value = 0.5"/>
+
+        <!-- Slider with child callback -->
+        <slider name="mySlider4">
+            <onValueChanged>
+                mySlider2.Value = -5;
+            </onValueChanged>
+        </slider>
+
+        <!-- Button setting slider to value which is out of range -->
+        <button onClick="mySlider3.Value = 0.7"/>
+    </section>
+</document>
+
+
+

@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<document xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd" name="myDoc">
+    <title>Plot Document</title>
+
+    <section name="mySec">
+        <title>Plot Test</title>
+
+        <drawing name="myDrawing" transform="1 2 3 4; 5 6 7 8; 9 10 11 12; 13 14 15 16">
+            <axis dim="x" min="0" max="10"/>
+            <axis dim="y" min="-1" max="1">
+                <title>Amplitude</title>
+            </axis>
+            <plot name="myPlot">
+                <title>My Plot</title>
+                <subtitle>My Subtitle</subtitle>
+                <series name="first">
+                    <title>Ramp</title>
+                    <data>1 3; 5 7; 9 11; 13 15; 17 19; 21 23; 25 27; 29 31; 33 35</data>
+                </series>
+            </plot>
+        </drawing>
+    </section>
+
+    <section>
+        <title>CSV Test</title>
+
+        <drawing name="myDrawing">
+            <axis dim="x" min="0" max="5"/>
+            <axis dim="y" min="-5" max="5"/>
+            <plot name="sinePlot">
+                <title>Noisy Sine Wave</title>
+                <series name="first">
+                    <data src="noisy_sine_wave.csv"/>
+                </series>
+            </plot>
+        </drawing>
+    </section>
+
+    <section>
+        <title>Simulation Test</title>
+
+        <drawing name="myDrawing">
+            <axis dim="x" min="0" max="5"/>
+            <axis dim="y" min="-3" max="3"/>
+            <plot name="simPlot">
+                <title>Clean Sine Wave</title>
+                <series name="dataSeries"/>
+            </plot>
+        </drawing>
+
+        <simulation name="mySim" duration="1" period="0.02">
+            <onUpdate>
+                myDrawing.simPlot.dataSeries:Add(time, 3 * math.sin(2 * math.pi * time));
+            </onUpdate>
+        </simulation>
+
+        <button content="Start" onClick="mySim:Start();"/>
+    </section>
+
+    <section>
+        <title>Shortcut Test</title>
+
+        <plot name="shortcutPlot">
+            <series name="dataSeries">
+                <title>Shortcut Series</title>
+            </series>
+        </plot>
+
+        <simulation name="shortcutSim" duration="1" period="0.02">
+            <onUpdate>
+                shortcutPlot.dataSeries:Add(time, 0.1 * math.sin(2 * math.pi * time));
+            </onUpdate>
+        </simulation>
+
+        <button content="Start" onClick="shortcutSim:Start();"/>
+    </section>
+
+</document>
+

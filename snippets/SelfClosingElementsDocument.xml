@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd" name="myDoc">
+    <title>Self-Closing Elements Document</title>
+
+    <section name="mySec">
+        <title/>
+        <p/>
+        <label/>
+        <button/>
+        <slider/>
+        <textField/>
+        <textInput/>
+    </section>
+</document>

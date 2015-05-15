@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<document xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd" name="myDoc">
+    <title>Named Style Set in Paragraph Document</title>
+
+    <section name="mySec">
+        <title>Named Style Set in Paragraph Test</title>
+
+        <!-- Attempt to name a style set inside a paragraph -->
+        <paragraph>
+            <style name="custom">
+                <bold>true</bold>
+            </style>
+            Hello world.
+        </paragraph>
+    </section>
+</document>
+

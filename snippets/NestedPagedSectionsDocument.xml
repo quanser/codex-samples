@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd" name="myDoc">
+    <title>Nested Paged Sections Document</title>
+
+    <section name="mySec">
+        <title>Level 1 Section</title>
+        <section name="mySubsec">
+            <title>Level 2 Section</title>
+            <section name="mySubsubsec">
+                <title>Level 3 Section</title>
+                <p>
+                    This is section level 3.
+                </p>
+                <section name="MySubsubsubsec1">
+                    <title>Level 4.1 Section</title>
+                    <p>
+                        This is section level 4.1.
+                    </p>
+                </section>
+                <pageBreak/>
+                <p>
+                    This is the second paragraph in section level 3.
+                </p>
+                <section name="MySubsubsubsec2">
+                    <title>Level 4.2 Section</title>
+                    <p>
+                        This is section level 4.2.
+                    </p>
+                </section>
+            </section>
+        </section>
+    </section>
+</document>

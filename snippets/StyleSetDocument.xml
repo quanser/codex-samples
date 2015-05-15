@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<document xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd" name="myDoc">
+    <title>Style Set Document</title>
+
+    <style name="paragraphs">
+        <bold>true</bold>
+    </style>
+    <style name="customItalic">
+        <italic>true</italic>
+    </style>
+    <style name="customUnderline">
+        <underline>true</underline>
+    </style>
+    <style name="customBold">
+    	<bold>false</bold>
+    </style>
+    <style name="customCascading" cascading="true">
+    	<underline>true</underline>
+    	<superscript cascading="false">true</superscript>
+    </style>
+
+    <section name="mySec">
+        <title>Style Set Test</title>
+
+        <paragraph>
+            Hello world
+        </paragraph>
+        <paragraph>
+            Bonjour tout le monde
+        </paragraph>
+        <paragraph style="customItalic">
+            Pizza?
+        </paragraph>
+        <paragraph style="customItalic customUnderline">
+            Pepperoni?
+        </paragraph>
+        <paragraph style="customBold">
+        	Not bold
+        </paragraph>
+    </section>
+
+    <section name="parentSec">
+    	<title>Parent Style Set Test</title>
+
+    	<!-- Define a new style for paragraphs, which inherits implicitly from the paragraphs style higher up -->
+    	<style name="paragraphs">
+    		<italic>true</italic>
+    	</style>
+
+    	<paragraph>
+    		This text should be bold and italic.
+    	</paragraph>
+
+    	<!-- Define a new style for customBold, which inherits implicitly from the customBold style higher up -->
+    	<style name="customBold">
+    		<underline>true</underline>
+    	</style>
+
+    	<paragraph style="customBold">
+    		This text should be italic and underlined.
+    	</paragraph>
+
+    	<!-- Define a new style for customItalic, which inherits implicitly from the customItalic style higher up -->
+    	<style name="customItalic">
+    		<!--- Override the italic style -->
+    		<italic>false</italic>
+    	</style>
+
+    	<paragraph style="customItalic">
+    		This text should be bold only.
+    	</paragraph>
+
+    	<!--- Define a new style set that inherits from customUnderline explicitly -->
+    	<style name="customNew" parent="customUnderline">
+    		<foreground color="blue"/>
+    	</style>
+
+    	<paragraph style="customNew">
+    		This text should be blue, bold, italic and underlined.
+    	</paragraph>
+
+    	<paragraph>
+    		<style>
+    			<background color="red"/>
+    		</style>
+
+    		This text should be bold and italic with a red background.
+    	</paragraph>
+
+    </section>
+
+    <section>
+    	<title>No Parent Test</title>
+
+    	<style name="paragraphs" parent="none">
+    		<italic>true</italic>
+    	</style>
+
+    	<paragraph>
+    		This text should be italic only.
+    	</paragraph>
+
+    </section>
+
+    <section>
+    	<title>Merge Test</title>
+
+    	<style name="fontSize">
+    		<size scale="0.5"/>
+    	</style>
+    	<paragraph style="fontSize">
+    		<size scale="3">
+    			This text should be 1.5 scale.
+    			<size scale="0.2">And this text should be 0.3 scale. </size>
+    			<size points="15">And this text should be 15 point.</size>
+    		</size>
+    	</paragraph>
+    </section>
+
+    <section style="customCascading">
+    	<title>Cascading Test</title>
+
+    	<paragraph>
+    		This text should be underlined and bold.
+    	</paragraph>
+
+    	<section>
+    		<title>Subsection</title>
+	    	<paragraph>
+	    		This text should be underlined and bold.
+	    	</paragraph>
+
+	    	<paragraph style="customCascading">
+	    		This text should be underlined, bold and superscripted.
+	    	</paragraph>
+    	</section>
+    </section>
+</document>
+
