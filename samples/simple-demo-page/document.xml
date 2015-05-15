@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+SimpleDemoPage1.xml
+ 
+Author:
+      Daniel Madill <daniel.madill@quanser.com>
+
+Copyright (c) 2015 Quanser Inc
+
+-->
+<document xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd" name="doc">
+	<title>Simple Demo 1</title>
+
+	<!-- Add extra margins to buttons to space them out a bit -->
+    <style name="buttons">
+    	<marginTop>10</marginTop>
+    	<marginBottom>10</marginBottom>
+    </style>
+
+	<section name="firstSection">
+		<title>Introduction</title>
+		<p>
+        	This demonstration illustrates some of the current capabilities with regards
+        	to text, buttons and sliders.
+        </p>
+
+		<section>
+			<title>Font Styles</title>
+			<p>
+				This section illustrates various font styles, such as <b>bold</b>, <i>italic</i>,
+				<u>underline</u>, superscript<sup>1</sup>, subscript<sub>2</sub>, <foreground color="magenta">foreground colour</foreground>,
+				<background color="yellow">background colour</background>, <size scale="0.7">font size</size>, and
+				<font name="serif">font name</font>. The title of the document, which is substituted
+				via a <font name="monospace">get</font> element is "<crossRef ref="doc" />". It's use is not restricted
+				to the document, but may be used for any element. For example, the top-level section's title is
+				"<crossRef ref="firstSection" />".
+			</p>
+			<equation>
+				y = A sin(wt)
+			</equation>
+			<section>
+				<title>Subsection</title>
+				<equation>
+					y = A cos(wt)
+				</equation>
+			</section>
+		</section>
+
+		<section>
+			<title>Displaying Images</title>
+			<p>
+				This section demonstrates the different ways in which images can be displayed. They can be
+				displayed independently, as the QUBE Servo is shown below, or images can be stored inline,
+				as the image <image src="eqn_1b4ccd98877b4e34b2469066224e79f5.png" alt="T(s)" scale="0.02" baseline="3" />
+				within this paragraph.
+			</p>
+			<image src="qube_servo.png" alt="QUBE Servo"/>
+		</section>
+
+		<section>
+			<title>Changing Font Size</title>
+			<p name="sizeParagraph">
+	    		Here is some text whose size we wish to change.
+	    	</p>
+			<p>
+	    		Move the slider below to change the size of the text. Press the button to reset
+	    		the size to the default size.
+	    	</p>
+			<!--- Use CDATA here because of angle brackets inside script -->
+			<slider name="sizeSlider" min="0.1" max="3" value="1">
+				<onValueChanged><![CDATA[
+					sizeParagraph.FormattedText = string.format("<size scale='%f'>Here is some text whose size we wish to change.</size>", value);
+				]]></onValueChanged>
+			</slider>
+			<button content="Reset Size" onClick="sizeSlider.Value = 1"/>
+		</section>
+
+		<section>
+			<title>Changing Font Color</title>
+			<p name="colouredParagraph">
+				<foreground color="0 0 127">Here is some text whose colour we wish to change.</foreground>
+			</p>
+			<p>
+	    		Move the sliders below to change the red, green and blue components of the text colour. Press the button
+	    		to reset the colour to black.
+	    	</p>
+			<!--- Use CDATA here because of angle brackets inside script -->
+			<script><![CDATA[
+				local red = 0;
+				local green = 0;
+				local blue = 127;
+
+				function changeParagraphColour()
+					colouredParagraph.FormattedText = string.format("<foreground color='%d %d %d'>Here is some text whose colour we wish to change.</foreground>",
+						red, green, blue);
+				end
+			]]></script>
+			<slider name="redSlider" min="0" max="255">
+				<onValueChanged>
+					red = value;
+					changeParagraphColour();
+				</onValueChanged>
+			</slider>
+			<slider name="greenSlider" min="0" max="255">
+				<onValueChanged>
+					green = value;
+					changeParagraphColour();
+				</onValueChanged>
+			</slider>
+			<slider name="blueSlider" min="0" max="255" value="127">
+				<onValueChanged>
+					blue = value;
+					changeParagraphColour();
+				</onValueChanged>
+			</slider>
+			<button content="Reset Colour" onClick="redSlider.Value = 0; greenSlider.Value = 0; blueSlider.Value = 0;" />
+		</section>
+
+		<section>
+			<title>Changing Button Text</title>
+			<p>
+				This section illustrates changing button text each time the button is pressed.
+			</p>
+			<script>
+				local switch = 0;
+			</script>
+			<button name="toggleButton" content="Press here">
+				<onClick>
+					switch = 1 - switch;
+					if (switch == 0) then
+						toggleButton.Text = "Switch is off";
+					else
+						toggleButton.Text = "Switch is on";
+					end
+				</onClick>
+			</button>
+		</section>
+		<section>
+			<title>Tables</title>
+			<table widths="40% 60%">
+				<head>
+					<column>
+						<p>Item</p>
+					</column>
+					<column>
+						<p>Description</p>
+					</column>
+				</head>
+				<row>
+					<column>
+						<p>
+							Almond
+						</p>
+					</column>
+					<column>
+						<p>
+							A drupe, not a not.
+						</p>
+					</column>
+				</row>
+				<row>
+					<column>
+						<p>
+							Walnut
+						</p>
+					</column>
+					<column>
+						<p>
+							A tree nut that has a hard outer shell.
+						</p>
+					</column>
+				</row>
+			</table>
+		</section>
+		<section>
+	    	<title>Merge Test</title>
+
+	    	<style name="fontSize">
+	    		<size scale="0.5"/>
+	    	</style>
+	    	<paragraph style="fontSize">
+	    		<size scale="3">
+	    			This text should be 1.5 scale.
+	    			<size scale="0.2">And this text should be 0.3 scale. </size>
+	    			<size points="15">And this text should be 15 point.</size>
+	    		</size>
+	    	</paragraph>
+	    </section>
+		<section>
+			<title>Black Square Format</title>
+			<style>
+				<counter name="bullet" format="blackSquare"/>
+			</style>
+			<style name="paragraphs">
+				<increment counter="bullet"/>
+				<numbering counter="bullet" mode="flat" />
+			</style>
+			<p>
+				Some bulleted text.
+			</p>
+			<p>
+				Some bulleted text.
+			</p>
+		</section>
+		<section>
+			<title>White Square Format</title>
+			<style>
+				<counter name="bullet" format="whiteSquare"/>
+			</style>
+			<style name="paragraphs">
+				<increment counter="bullet"/>
+				<numbering counter="bullet" mode="flat" />
+			</style>
+			<p>
+				Some bulleted text.
+			</p>
+			<p>
+				Some bulleted text.
+			</p>
+		</section>
+		<section>
+			<title>Black Circle Format</title>
+			<style>
+				<counter name="bullet" format="blackCircle"/>
+			</style>
+			<style name="paragraphs">
+				<increment counter="bullet"/>
+				<numbering counter="bullet" mode="flat" />
+			</style>
+			<p>
+				Some bulleted text.
+			</p>
+			<p>
+				Some bulleted text.
+			</p>
+		</section>
+		<section>
+			<title>White Circle Format</title>
+			<style>
+				<counter name="bullet" format="whiteCircle"/>
+			</style>
+			<style name="paragraphs">
+				<increment counter="bullet"/>
+				<numbering counter="bullet" mode="flat" />
+			</style>
+			<p>
+				Some bulleted text.
+			</p>
+			<p>
+				Some bulleted text.
+			</p>
+		</section>
+		<section>
+			<title>Black Diamond Format</title>
+			<style>
+				<counter name="bullet" format="blackDiamond"/>
+			</style>
+			<style name="paragraphs">
+				<increment counter="bullet"/>
+				<numbering counter="bullet" mode="flat" />
+			</style>
+			<p>
+				Some bulleted text.
+			</p>
+			<p>
+				Some bulleted text.
+			</p>
+		</section>
+		<section>
+			<title>White Diamond Format</title>
+			<style>
+				<counter name="bullet" format="whiteDiamond"/>
+			</style>
+			<style name="paragraphs">
+				<increment counter="bullet"/>
+				<numbering counter="bullet" mode="flat" />
+			</style>
+			<p>
+				Some bulleted text.
+			</p>
+			<p>
+				Some bulleted text.
+			</p>
+		</section>
+		<section>
+			<title>Black Right Triangle Format</title>
+			<style>
+				<counter name="bullet" format="blackRightTriangle"/>
+			</style>
+			<style name="paragraphs">
+				<increment counter="bullet"/>
+				<numbering counter="bullet" mode="flat" />
+			</style>
+			<p>
+				Some bulleted text.
+			</p>
+			<p>
+				Some bulleted text.
+			</p>
+		</section>
+		<section>
+			<title>White Right Triangle Format</title>
+			<style>
+				<counter name="bullet" format="whiteRightTriangle"/>
+			</style>
+			<style name="paragraphs">
+				<increment counter="bullet"/>
+				<numbering counter="bullet" mode="flat" />
+			</style>
+			<p>
+				Some bulleted text.
+			</p>
+			<p>
+				Some bulleted text.
+			</p>
+		</section>
+		<section>
+			<title>Custom Bullet Format</title>
+			<style>
+				<counter name="bullet" format="decimal"/>
+			</style>
+			<style name="paragraphs">
+				<increment counter="bullet"/>
+				<numbering counter="bullet" mode="flat" pattern="&#x25F7;" />
+			</style>
+			<p>
+				Some bulleted text.
+			</p>
+			<p>
+				Some bulleted text.
+			</p>
+		</section>
+	</section>
+</document>
