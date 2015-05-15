@@ -1,4 +1,4 @@
-# Codex™ Samples
+# Codex Samples
 Sample documents created for the Codex framework
 
 # Software License
