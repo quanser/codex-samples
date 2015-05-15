@@ -1,0 +1,3 @@
+[submodule "schema"]
+	path = modules/codex-schema
+	url = https://github.com/quanser/codex-schema.git
