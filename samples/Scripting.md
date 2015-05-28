@@ -38,3 +38,57 @@ These members are shared by all elements that are accessable using LUA.
 - OnClick: ```myButton.OnClick = "myButton.Text = string.format("Updated...");```
 - OnImageSourceChanged
 - OnTextChanged
+
+##Document
+
+**Properties**
+
+- Title: 
+  - ```myDocument.Title = "This is the name of the docuent";```
+  - ```local docTitle = myDocument.Title;```
+
+##Footer
+
+**Properties**
+
+- Level: ```local footLevel = myFooter.Level;```
+- Title: 
+  - ```theFooter.Title = "This is the footer";```
+  - ```local footTitle = theFooter.Title;```
+
+##Header
+
+**Properties**
+
+- Level: ```local headLevel = myHeader.Level;```
+- Title: 
+  - ```theHeader.Title = "This is the header";```
+  - ```local headTitle = theHeader.Title;```
+
+**Fields**
+
+- References: ```local refs = theHeader.References;```
+
+##Image
+
+**Properties**
+
+- AlternateText: 
+  - ```local altText = myImage.AlternateText;```
+  - ```myImage.AlternateText = "This is an image.";```
+- ImageSource
+  - ```local image = myImage.ImageSource;```
+  - ```myImage.ImageSource = "images\image1.png";```
+
+**Methods**
+
+- Tap: ```myImage.Tap();```
+
+**Events**
+
+- OnAlternateTextChanged
+- OnImageSourceChanged
+- OnTap
+
+##Page
+
