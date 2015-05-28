@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<document xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd" name="myDoc">
+<document xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd" name="myDoc" theme="codex:detailed">
     <title>Formatted Text Document</title>
 
     <section name="mySec">
@@ -54,6 +54,7 @@
             <crossRef ref="mySec.myLabel">ref</crossRef> 
             <link url="http://www.quanser.com">link</link>
             <image src="foo.gif" scale="1.7" baseline="0.2" alt="bar"/>
+            <image src="bar.gif"/>
         </p>
     </section>
 </document>

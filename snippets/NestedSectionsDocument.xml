@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<document xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd" name="myDoc">
+<document xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd" name="myDoc" theme="codex:detailed">
     <title>Nested Sections Document</title>
 
     <section name="mySec">

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?> 
+
+<!-- Theme will inherit from the default theme by default -->
+<theme xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd" parent="codex:detailed">
+
+    <style name="paragraphs">
+        <bold>true</bold>
+    </style>
+
+    <include src="CustomIncludedTheme.xml"/>
+</theme>

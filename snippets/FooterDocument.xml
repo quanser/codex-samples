@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<document xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd" name="myDoc" theme="codex:detailed">
+    <title>Footer Document</title>
+
+    <style name="pages">
+        <footer>
+            <p>
+                <style>
+                    <numbering counter="pages" suffix="true"/>
+                </style>
+                Page
+            </p>
+        </footer>
+    </style>
+
+    <section>
+        <title>Introduction</title>
+        <p>
+            This page contains the introduction.
+        </p>
+    </section>
+
+    <section>
+        <title>Overview</title>
+        <p>
+            This page contains the overview.
+        </p>
+    </section>
+
+    <footer>
+        <p>
+            <style>
+                <numbering counter="pages" suffix="true"/>
+            </style>
+            Last Page
+        </p>
+    </footer>
+
+    <section>
+        <title>Conclusion</title>
+        <p>
+            This page contains the conclusion.
+        </p>
+    </section>
+
+</document>

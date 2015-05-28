@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<document xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd" name="myDoc">
+<document xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd" name="myDoc" theme="codex:detailed">
     <title>Simulation Document</title>
 
     <section>
@@ -39,6 +39,21 @@
             <solver>
                 <constant name="constSys" value="3.14 2.72"/>
                 <gain name="gainSys" value="25 -17 0.005"/>
+                <!---<sum name="sumSys"/> -->
+                <square name="squareSys" amplitude="5" frequency="10" phase="0" bias="0"/>
+                <sine name="sineSys" amplitude="5" frequency="10" phase="1.57" bias="0"/>
+
+                <!--
+                    <series>
+                        <sine amplitude="5"/>
+                        <gain value="1.2"/>
+                        <feedback>
+                            <stateSpace a="1" b="1" c="1" d="0"/>
+                            <gain name="feedbackGain" value="25"/>
+                        </feedback>
+                        <scope to="myPlot.dataSeries"/>
+                    </series>
+                -->
             </solver>
         </simulation>
     </section>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?> 
+<theme xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd">
+
+    <style name="sectionLevel1Headings">
+        <underline>true</underline>
+    </style>
+</theme>

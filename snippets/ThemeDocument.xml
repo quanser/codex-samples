@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<document xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd" name="myDoc" theme="CustomTheme.xml">
+    <title>Style Set Document</title>
+
+    <section name="mySec">
+        <title>Introduction</title>
+        <p>
+            Hello world!
+        </p>
+    </section>
+</document>
