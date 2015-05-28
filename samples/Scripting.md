@@ -1,4 +1,4 @@
-# Guide to using LUA to Access Codex Model Members
+# Guide to Using LUA to Access Codex Document Elements
 
 ## Shared Members
 
