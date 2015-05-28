@@ -35,7 +35,7 @@ These members are shared by all elements that are accessable using LUA.
 **Events**
 
 - OnAlternateTextChanged
-- OnClick: ```myButton.OnClick = string.format("myButton.Text = 'Updated...'");```
+- OnClick
 - OnImageSourceChanged
 - OnTextChanged
 
