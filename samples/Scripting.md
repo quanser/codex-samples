@@ -90,10 +90,6 @@ These members are shared by all elements that are accessable using LUA.
 - OnImageSourceChanged
 - OnTap
 
-##Page
-
-Shares Properties with all elements
-
 ##Section
 
 **Properties**
