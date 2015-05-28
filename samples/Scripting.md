@@ -18,7 +18,7 @@ These members are shared by all elements that are accessable using LUA.
 
 **Properties**
 
-- AlternateText: 
+- AlternateText
   - ```local altText = myButton.AlternateText;```
   - ```myButton.AlternateText = "This is a button.";```
 - ImageSource
@@ -43,7 +43,7 @@ These members are shared by all elements that are accessable using LUA.
 
 **Properties**
 
-- Title: 
+- Title
   - ```myDocument.Title = "This is the name of the docuent";```
   - ```local docTitle = myDocument.Title;```
 
@@ -52,7 +52,7 @@ These members are shared by all elements that are accessable using LUA.
 **Properties**
 
 - Level: ```local footLevel = theFooter.Level;```
-- Title: 
+- Title
   - ```theFooter.Title = "This is the footer";```
   - ```local footTitle = theFooter.Title;```
 
@@ -61,7 +61,7 @@ These members are shared by all elements that are accessable using LUA.
 **Properties**
 
 - Level: ```local headLevel = theHeader.Level;```
-- Title: 
+- Title
   - ```theHeader.Title = "This is the header";```
   - ```local headTitle = theHeader.Title;```
 
@@ -73,7 +73,7 @@ These members are shared by all elements that are accessable using LUA.
 
 **Properties**
 
-- AlternateText: 
+- AlternateText
   - ```local altText = myImage.AlternateText;```
   - ```myImage.AlternateText = "This is an image.";```
 - ImageSource
@@ -99,7 +99,7 @@ Shares Properties with all elements
 **Properties**
 
 - Level: ```local secLevel = theSection.Level;```
-- Title: 
+- Title
   - ```theSection.Title = "This is a section";```
   - ```local secTitle = theSection.Title;```
 
@@ -107,7 +107,7 @@ Shares Properties with all elements
 
 **Properties**
 
-- InitialValue: 
+- InitialValue
   - ```mySlider.InitialValue = 5;```
   - ```local initVal = mySlider.InitialValue;```
 - MaxValue
@@ -134,3 +134,54 @@ Shares Properties with all elements
 
 ##Stack Layout
 
+**Properties**
+
+- Orientation
+  - ```myStack.Orientation = "horizontal"```;
+  - ```local stackOrient = myStack.Orientation;```
+
+**Events**
+
+- OnOrientationChanged
+
+##Switch
+
+**Properties**
+
+- InitialValue
+  - ```mySwitch.InitialValue = true;```
+  - ```local initVal = mySwitch.InitialValue;```
+- Value
+  - ```mySwitch.Value = false;```
+  - ```local switchVal = mySwitch.Value;```
+  
+**Fields**
+
+- DefaultValue: ```local defaultVal = mySwitch.DefaultValue;```
+
+**Events**
+
+- OnValueChanged
+
+##Table
+
+**Properties**
+
+- ColumnWidths
+  - ```myTable.ColumnWidths = 0.5;```
+  - ```local colWidth = myTable.ColumnWidths;```
+- GridLines
+  - ```myTable.GridLines = true;```
+  - ```local gridLines = myTable.GridLines;```
+- HasHeaderRow: ```local myTable.HasHeaderRow;```
+
+##TableData
+
+**Properties**
+
+- ColumnSpan
+  - ```myTable.ColumnSpan = 2;```
+  - ```local colSpan = myTable.ColumnSpan;```
+- RowSpan
+  - ```myTable.RowSpan = 3;```
+  - ```local rowSpan = myTable.RowSpan;```
