@@ -51,7 +51,7 @@ These members are shared by all elements that are accessable using LUA.
 
 **Properties**
 
-- Level: ```local footLevel = myFooter.Level;```
+- Level: ```local footLevel = theFooter.Level;```
 - Title: 
   - ```theFooter.Title = "This is the footer";```
   - ```local footTitle = theFooter.Title;```
@@ -60,7 +60,7 @@ These members are shared by all elements that are accessable using LUA.
 
 **Properties**
 
-- Level: ```local headLevel = myHeader.Level;```
+- Level: ```local headLevel = theHeader.Level;```
 - Title: 
   - ```theHeader.Title = "This is the header";```
   - ```local headTitle = theHeader.Title;```
@@ -91,4 +91,46 @@ These members are shared by all elements that are accessable using LUA.
 - OnTap
 
 ##Page
+
+Shares Properties with all elements
+
+##Section
+
+**Properties**
+
+- Level: ```local secLevel = theSection.Level;```
+- Title: 
+  - ```theSection.Title = "This is a section";```
+  - ```local secTitle = theSection.Title;```
+
+##Slider
+
+**Properties**
+
+- InitialValue: 
+  - ```mySlider.InitialValue = 5;```
+  - ```local initVal = mySlider.InitialValue;```
+- MaxValue
+  - ```mySlider.MaxValue = 10;```
+  - ```local maxVal = mySlider.MaxValue;```
+- MinValue
+  - ```mySlider.MinValue = 0;```
+  - ```local minVal = mySlider.MinValue;```
+- Value
+  - ```mySlider.Value = 3;```
+  - ```local slideVal = mySlider.Value;```
+
+**Fields**
+
+- DefaultMaxValue: ```local defaultMax = mySlider.DefaultMaxValue;```
+- DefaultMinValue: ```local defaultMin = mySlider.DefaultMinValue;```
+- DefaultValue: ```local defaultVal = mySlider.DefaultValue;```
+
+**Events**
+
+- OnMaxValueChanged
+- OnMinValueChanged
+- OnValueChanged
+
+##Stack Layout
 
