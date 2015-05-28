@@ -108,16 +108,16 @@ Shares Properties with all elements
 **Properties**
 
 - InitialValue
-  - ```mySlider.InitialValue = 5;```
+  - ```mySlider.InitialValue = 5.0;```
   - ```local initVal = mySlider.InitialValue;```
 - MaxValue
-  - ```mySlider.MaxValue = 10;```
+  - ```mySlider.MaxValue = 10.0;```
   - ```local maxVal = mySlider.MaxValue;```
 - MinValue
-  - ```mySlider.MinValue = 0;```
+  - ```mySlider.MinValue = 0.0;```
   - ```local minVal = mySlider.MinValue;```
 - Value
-  - ```mySlider.Value = 3;```
+  - ```mySlider.Value = 3.0;```
   - ```local slideVal = mySlider.Value;```
 
 **Fields**
@@ -185,3 +185,29 @@ Shares Properties with all elements
 - RowSpan
   - ```myTable.RowSpan = 3;```
   - ```local rowSpan = myTable.RowSpan;```
+
+##TableRow
+
+**Properties**
+
+- NumberOfColumns: ```local colNum = myRow.NumberOfColumns;```
+
+
+##TextInput
+
+**Properties**
+
+- IsMultiline
+  - ```myInput.IsMultiline = true;```
+  - ```local isMulti = myInput.IsMultiline;```
+- PlaceholderText
+  - ```myInput.PlaceholderText = "Enter text here...";```
+  - ```local phText = myInput.PlaceholderText;```
+- Text
+  - ```myInput.Text = "This is text that was input";```
+  - ```local inText = myInput.Text;```
+  - 
+##Events
+
+- OnPlaceholderTextChanged
+- OnTextChanged
