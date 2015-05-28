@@ -206,7 +206,7 @@ Shares Properties with all elements
 - Text
   - ```myInput.Text = "This is text that was input";```
   - ```local inText = myInput.Text;```
-  - 
+
 ##Events
 
 - OnPlaceholderTextChanged
