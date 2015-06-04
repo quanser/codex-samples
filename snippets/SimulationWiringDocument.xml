@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://resources.codexdocs.com/schema/v1/QDocument.xsd" name="myDoc" theme="codex:detailed">
+    <title>Simulation Document</title>
+
+    <section>
+        <title>Unwired Systems</title>
+
+        <simulation name="mySim">
+            <solver name="mySolver">
+
+                <constant name="constSys" value="3.14 2.72"/>
+                <square name="squareSys" amplitude="5 7" frequency="10" phase="0.1" bias="-0.5"/>
+                <sine name="sineSys" amplitude="5" frequency="10" phase="1.57 -1.57" bias="0.2"/>
+
+                <gain name="gainSys" value="25 -17 0.005"/>
+                <saturation name="satSys" min="-1.2" max="+1.7"/>
+                <sum name="sumSys"/>
+                <sum name="sumFive" inputs="5" polarity="+-++-"/>
+                <product name="prodSys"/>
+                <product name="prodFive" inputs="5" />
+                <mux name="muxSys"/>
+                <mux name="muxFive" inputs="5" />
+                <break name="breakSys"/>
+                <!---
+                <demux name="demuxSys"/>
+                <demux name="demuxFive" outputs="5" />
+                -->
+            </solver>
+        </simulation>
+    </section>
+
+    <section>
+        <title>Wired Systems</title>
+
+        <simulation name="mySim">
+            <solver name="mySolver">
+
+                <sum name="sumSubsys">
+                    <gain name="gainSubsys1"/>
+                    <gain name="gainSubsys2"/>
+                    <gain name="gainSubsys3"/>
+                </sum>
+
+                <series>
+                    <gain name="gainSubsys4"/>
+                    <gain name="gainSubsys5"/>
+                    <gain name="gainSubsys6"/>
+                </series>
+
+                <parallel>
+                    <gain name="gainSubsys7"/>
+                    <gain name="gainSubsys8"/>
+                    <gain name="gainSubsys9"/>
+                </parallel>
+
+                <feedback>
+                    <gain name="gainSubsys10"/>
+                    <gain name="gainSubsys11"/>
+                </feedback>
+
+                <sum name="sumSys"/>
+                <gain name="gainSys1"/>
+                <gain name="gainSys2"/>
+                <wire from="gainSys1" to="sumSys.1"/>
+                <wire from="gainSys2" to="sumSys.2"/>
+
+                <series>
+                    <sum name="sumSubsys1"/>
+                    <using input="2">
+                        <sum name="sumSubsys2"/>
+                    </using>
+                    <gain name="gainSubsys12"/>
+                </series>
+
+                <product name="prodSys">
+                    <gain name="gainSubsys13"/>
+                    <gain name="gainSubsys14"/>
+                    <gain name="gainSubsys15"/>
+                </product>
+
+                <mux name="muxSys">
+                    <gain name="gainSubsys16"/>
+                    <gain name="gainSubsys17"/>
+                    <gain name="gainSubsys18"/>
+                </mux>
+
+                <!---
+                <demux name="demuxSys">
+                    <gain name="gainSubsys19"/>
+                    <gain name="gainSubsys20"/>
+                    <gain name="gainSubsys21"/>
+                </demux>
+                -->
+
+            </solver>
+        </simulation>
+    </section>
+
+    <section>
+        <title>Connected Systems</title>
+
+        <simulation name="mySim" duration="0.1" asynchronous="true">
+            <solver name="mySolver">
+
+                <series>
+                    <constant name="constSys" value="2 4 6 3 5"/>
+                    <demux name="demuxSys" outputs="3"/>
+                    <stack>
+                        <gain name="gainSubsys1" value="0.1"/>
+                        <gain name="gainSubsys2" value="0.3"/>
+                        <gain name="gainSubsys3" value="0.5"/>
+                    </stack>
+                    <mux name="muxSys" inputs="3"/>
+                </series>
+
+            </solver>
+        </simulation>
+
+    </section>
+</document>

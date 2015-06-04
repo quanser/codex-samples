@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<document xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd" name="myDoc" theme="codex:detailed">
+<document xmlns="http://resources.codexdocs.com/schema/v1/QDocument.xsd" name="myDoc" theme="codex:detailed">
     <title>Style Script Document</title>
 
     <style name="paragraphs">

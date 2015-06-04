@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<document xmlns="http://www.quanser.com/schemas/Codex/QDocument.xsd" name="myDoc" theme="codex:detailed">
+<document xmlns="http://resources.codexdocs.com/schema/v1/QDocument.xsd" name="myDoc" theme="codex:detailed">
     <title>Plot Document</title>
 
     <section name="mySec">
         <title>Plot Test</title>
 
-        <drawing name="myDrawing" transform="1 2 3 4; 5 6 7 8; 9 10 11 12; 13 14 15 16">
+        <drawing name="myDrawing">
             <axis dim="x" min="0" max="10"/>
             <axis dim="y" min="-1" max="1">
                 <title>Amplitude</title>
