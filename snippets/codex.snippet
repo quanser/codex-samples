@@ -1,0 +1,770 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Codex Sample Document</Title>
+      <Author>Peter Martin</Author>
+      <Description>Create a sample Codex document.</Description>
+      <HelpUrl>www.codexdocs.com/guides</HelpUrl>
+      <Shortcut>qdoc</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>doc_title</ID>
+          <ToolTip>Replace with the title of the document.</ToolTip>
+          <Default>A Sample Document</Default>
+        </Literal>
+        <Literal>
+          <ID>parent_title</ID>
+          <ToolTip>Replace with the title of the first section.</ToolTip>
+          <Default>First Section</Default>
+        </Literal>
+        <Literal>
+          <ID>child_title</ID>
+          <ToolTip>Replace with the title of the first subsection.</ToolTip>
+          <Default>First Subsection</Default>
+        </Literal>
+        <Literal>
+          <ID>par1</ID>
+          <ToolTip>Replace with the contents of the first paragraph.</ToolTip>
+          <Default>
+            Insert the content of the first paragraph here
+          </Default>
+        </Literal>
+        <Literal>
+          <ID>par2</ID>
+          <ToolTip>Replace with the contents of the second paragraph.</ToolTip>
+          <Default>
+            Insert the content of the second paragraph here
+          </Default>
+        </Literal>
+        <Literal>
+          <ID>author</ID>
+          <ToolTip>Your name.</ToolTip>
+          <Default>
+            Name
+          </Default>
+        </Literal>
+        <Literal>
+          <ID>desc</ID>
+          <ToolTip>Description of the document.</ToolTip>
+          <Default>
+            This is a Codex document
+          </Default>
+        </Literal>
+      </Declarations>
+      <Code Language="XML">
+        <![CDATA[<!--
+        Author: $author$
+        Description: $desc$-->
+        
+        <document xmlns="http://resources.codexdocs.com/schema/v1/QDocument.xsd" name="myDocument">
+          <title>$doc_title$</title>
+
+          <section name="parent_section">
+            <title>$parent_title$</title>
+              <p>$par1$</p>
+            <section name="child_section">
+              <title>$child_title$</title>
+                <p>$par2$</p>
+            </section>
+          </section>
+        </document>
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Codex Button</Title>
+      <Author>Peter Martin</Author>
+      <Description>Add a button to a Codex document.</Description>
+      <HelpUrl>www.codexdocs.com/guides</HelpUrl>
+      <Shortcut>qbutton</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>butt_text</ID>
+          <ToolTip>Replace with the content string for your button.</ToolTip>
+          <Default>Click Me</Default>
+        </Literal>
+        <Literal>
+          <ID>butt_act</ID>
+          <ToolTip>Replace with the action for your button.</ToolTip>
+          <Default>Enter the script to run when the button is clicked</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="XML">
+        <![CDATA[
+        <button name="myButton" content="$butt_text$">
+          <onClick>
+            $butt_act$
+          </onClick>
+        </button>
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Codex Toggle Button</Title>
+      <Author>Peter Martin</Author>
+      <Description>Add a toggle button to a Codex document.</Description>
+      <HelpUrl>www.codexdocs.com/guides</HelpUrl>
+      <Shortcut>qtoggle</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>butt_text</ID>
+          <ToolTip>Replace with the content string for your button.</ToolTip>
+          <Default>Click Me</Default>
+        </Literal>
+        <Literal>
+          <ID>cond1</ID>
+          <ToolTip>Replace with the first condition for the button.</ToolTip>
+          <Default>Insert the first condition here</Default>
+        </Literal>
+        <Literal>
+          <ID>cond2</ID>
+          <ToolTip>Replace with the second condition for the button.</ToolTip>
+          <Default>Insert the second condition here</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="XML">
+        <![CDATA[
+        <script>
+          local switch = 0;
+        </script>
+
+        <button name="myToggle" content="$butt_text$">
+          <onClick>
+            switch = 1 - switch;
+            if (switch == 0) then
+              $cond1$
+            else
+              $cond2$
+            end
+          </onClick>
+        </button>
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Codex Slider</Title>
+      <Author>Peter Martin</Author>
+      <Description>Add a slider to a Codex document.</Description>
+      <HelpUrl>www.codexdocs.com/guides</HelpUrl>
+      <Shortcut>qslider</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>slide_min</ID>
+          <ToolTip>Replace with minimum slider value.</ToolTip>
+          <Default>0</Default>
+        </Literal>
+        <Literal>
+          <ID>slide_max</ID>
+          <ToolTip>Replace with maximum slider value.</ToolTip>
+          <Default>10</Default>
+        </Literal>
+        <Literal>
+          <ID>slide_val</ID>
+          <ToolTip>Replace with current slider value.</ToolTip>
+          <Default>5</Default>
+        </Literal>
+        <Literal>
+          <ID>slide_act</ID>
+          <ToolTip>Replace with the slider action.</ToolTip>
+          <Default>Enter your slide action here</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="XML">
+        <![CDATA[
+        <slider name="mySlider" min="$slide_min$" max="$slide_max$" value="$slide_val$">
+          <onValueChanged>
+            $slide_act$
+          </onValueChanged>
+        </slider>
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Codex Text Field</Title>
+      <Author>Peter Martin</Author>
+      <Description>Add a text field to a Codex document.</Description>
+      <HelpUrl>www.codexdocs.com/guides</HelpUrl>
+      <Shortcut>qfield</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>placehold</ID>
+          <ToolTip>Replace with the placeholder text.</ToolTip>
+          <Default>Enter some text here...</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="XML">
+        <![CDATA[
+        <textField name="myTextField">
+          <placeholder>
+            $placehold$
+          </placeholder>
+        </textField>
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Codex Equation</Title>
+      <Author>Peter Martin</Author>
+      <Description>Add an equation to a Codex document.</Description>
+      <HelpUrl>www.codexdocs.com/guides</HelpUrl>
+      <Shortcut>qeqn</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>equation</ID>
+          <ToolTip>Replace with the LaTeX equation.</ToolTip>
+          <Default>$y = \tan(\theta) - 1$</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="XML">
+        <![CDATA[
+        <equation>
+          $equation$
+        </equation>
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Codex Image</Title>
+      <Author>Peter Martin</Author>
+      <Description>Add an image to a Codex document.</Description>
+      <HelpUrl>www.codexdocs.com/guides</HelpUrl>
+      <Shortcut>qimg</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>size</ID>
+          <ToolTip>Replace with the size of the image.</ToolTip>
+          <Default>medium</Default>
+        </Literal>
+        <Literal>
+          <ID>src</ID>
+          <ToolTip>Replace with the source of the image.</ToolTip>
+          <Default>images\myImage.png</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="XML">
+        <![CDATA[
+          <image src="$src$" style="$size$"/>
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Codex Table</Title>
+      <Author>Peter Martin</Author>
+      <Description>Add a table to a Codex document.</Description>
+      <HelpUrl>www.codexdocs.com/guides</HelpUrl>
+      <Shortcut>qtable</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>col1</ID>
+          <ToolTip>Replace with the name of the first column.</ToolTip>
+          <Default>Title 1</Default>
+        </Literal>
+        <Literal>
+          <ID>col2</ID>
+          <ToolTip>Replace with the name of the second column.</ToolTip>
+          <Default>Title 2</Default>
+        </Literal>
+        <Literal>
+          <ID>val11</ID>
+          <ToolTip>Replace with the first value in the first row.</ToolTip>
+          <Default>(0, 0)</Default>
+        </Literal>
+        <Literal>
+          <ID>val12</ID>
+          <ToolTip>Replace with the second value in the first row.</ToolTip>
+          <Default>(0, 1)</Default>
+        </Literal>
+        <Literal>
+          <ID>val21</ID>
+          <ToolTip>Replace with the first value in the second row.</ToolTip>
+          <Default>(1, 0)</Default>
+        </Literal>
+        <Literal>
+          <ID>val22</ID>
+          <ToolTip>Replace with the second value in the second row.</ToolTip>
+          <Default>(1, 1)</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="XML">
+        <![CDATA[
+          <table grid="true" widths="50% 50%">
+            <head>
+              <column>
+                <p>$col1$</p>
+              </column>
+              <column>
+                <p>$col2$</p>
+              </column>
+            </head>
+            <row>
+              <column>
+                <p>$val11$</p>
+              </column>
+              <column>
+                <p>$val12$</p>
+              </column>
+            </row>
+            <row>
+              <column>
+                <p>$val21$</p>
+              </column>
+              <column>
+                <p>$val22$</p>
+              </column>
+            </row>
+          </table>
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Codex List</Title>
+      <Author>Peter Martin</Author>
+      <Description>Add a list to a Codex document.</Description>
+      <HelpUrl>www.codexdocs.com/guides</HelpUrl>
+      <Shortcut>qlist</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>type</ID>
+          <ToolTip>Replace with the type of list.</ToolTip>
+          <Default>decimal</Default>
+        </Literal>
+        <Literal>
+          <ID>item1</ID>
+          <ToolTip>Replace with the first item.</ToolTip>
+          <Default>First item</Default>
+        </Literal>
+        <Literal>
+          <ID>item2</ID>
+          <ToolTip>Replace with the second item.</ToolTip>
+          <Default>Second item</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="XML">
+        <![CDATA[
+        <style>
+          <counter name="listcount" format="$type$" />
+        </style>
+
+        <style name="mylist">
+          <increment counter="listcount" />
+          <numbering counter="listcount" mode="flat" />
+        </style>
+
+        <p style="mylist">
+          $item1$
+        </p>
+        <p style="mylist">
+          $item2$
+        </p>
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Codex Stack</Title>
+      <Author>Peter Martin</Author>
+      <Description>Add a stack layout to a Codex document.</Description>
+      <HelpUrl>www.codexdocs.com/guides</HelpUrl>
+      <Shortcut>qstack</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>orient</ID>
+          <ToolTip>Replace with the orientation of the stack.</ToolTip>
+          <Default>horizontal</Default>
+        </Literal>
+        <Literal>
+          <ID>item1</ID>
+          <ToolTip>Replace with the first element.</ToolTip>
+          <Default><![CDATA[<p> A paragraph</p>]]></Default>
+        </Literal>
+        <Literal>
+          <ID>item2</ID>
+          <ToolTip>Replace with the second element.</ToolTip>
+          <Default><![CDATA[<p> Antoher paragraph</p>]]></Default>
+        </Literal>
+      </Declarations>
+      <Code Language="XML">
+        <![CDATA[
+        <stack orientation="horizontal">
+          $item1$
+          $item2$
+        </stack>
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+    <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Codex Simulation Start/Stop Button</Title>
+      <Author>Peter Martin</Author>
+      <Description>Add a button that controls a simulation to a Codex document.</Description>
+      <HelpUrl>www.codexdocs.com/guides</HelpUrl>
+      <Shortcut>qsimbutton</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="XML">
+        <![CDATA[
+        <button name="sim_button" content="Start">
+          <onClick>
+            if sim_button.Text == "Start" then
+              sim_button.Text = "Stop";
+              sim:Start();
+            else
+              sim_button.Text = "Start";
+              sim:Stop();
+            end
+          </onClick>
+        </button>
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Codex Simulation Script</Title>
+      <Author>Peter Martin</Author>
+      <Description>Add a simulation that runs a script.</Description>
+      <HelpUrl>www.codexdocs.com/guides</HelpUrl>
+      <Shortcut>qsimscript</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>duration</ID>
+          <ToolTip>Replace with the duration of the simulation.</ToolTip>
+          <Default>10</Default>
+        </Literal>
+        <Literal>
+          <ID>period</ID>
+          <ToolTip>Replace with the period of the simulation.</ToolTip>
+          <Default>0.1</Default>
+        </Literal>
+        <Literal>
+          <ID>onupdate</ID>
+          <ToolTip>Replace with the script to run at each time step.</ToolTip>
+          <Default><![CDATA[<!-- Insert your script -->]]></Default>
+        </Literal>
+        <Literal>
+          <ID>onduration</ID>
+          <ToolTip>Replace with the script to run when the simulation is complete.</ToolTip>
+          <Default><![CDATA[<!-- sim_button.Text = "Start"; -->]]></Default>
+        </Literal>
+      </Declarations>
+      <Code Language="XML">
+        <![CDATA[
+        <simulation duration="$duration$" name="sim" period="$period$">
+          <onUpdate>
+            $onupdate$
+          </onUpdate>
+          <onDuration>
+            $onduration$
+          </onDuration>
+        </simulation>
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Codex Simulation Solver</Title>
+      <Author>Peter Martin</Author>
+      <Description>Add a simulation that includes a solver.</Description>
+      <HelpUrl>www.codexdocs.com/guides</HelpUrl>
+      <Shortcut>qsimsolve</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>duration</ID>
+          <ToolTip>Replace with the duration of the simulation.</ToolTip>
+          <Default>10</Default>
+        </Literal>
+        <Literal>
+          <ID>period</ID>
+          <ToolTip>Replace with the period of the simulation.</ToolTip>
+          <Default>0.1</Default>
+        </Literal>
+        <Literal>
+          <ID>model</ID>
+          <ToolTip>Replace with the model to simulate.</ToolTip>
+          <Default><![CDATA[<!-- Insert your model here -->]]></Default>
+        </Literal>
+      </Declarations>
+      <Code Language="XML">
+        <![CDATA[
+        <simulation duration="$duration$" name="sim" period="$period$">
+          <solver>
+            $model$
+          </solver>
+        </simulation>
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Codex PID Controller</Title>
+      <Author>Peter Martin</Author>
+      <Description>Add a PID controller into a simulation solver.</Description>
+      <HelpUrl>www.codexdocs.com/guides</HelpUrl>
+      <Shortcut>qpid</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>amp</ID>
+          <ToolTip>Replace with the amplitude of the command.</ToolTip>
+          <Default>1</Default>
+        </Literal>
+        <Literal>
+          <ID>freq</ID>
+          <ToolTip>Replace with the frequency of the command.</ToolTip>
+          <Default>0.1</Default>
+        </Literal>
+        <Literal>
+          <ID>P</ID>
+          <ToolTip>Replace with the proportional gain.</ToolTip>
+          <Default>1</Default>
+        </Literal>
+        <Literal>
+          <ID>I</ID>
+          <ToolTip>Replace with the integral gain.</ToolTip>
+          <Default>1</Default>
+        </Literal>
+        <Literal>
+          <ID>D</ID>
+          <ToolTip>Replace with the derivative gain.</ToolTip>
+          <Default>1</Default>
+        </Literal>
+        <Literal>
+          <ID>plant</ID>
+          <ToolTip>Replace with the plant model.</ToolTip>
+          <Default><![CDATA[<transferFunction name="plant" num="10" den="0.1 1" />]]></Default>
+        </Literal>
+      </Declarations>
+      <Code Language="XML">
+        <![CDATA[
+        <series>
+          <!-- Command -->
+          <square name="mysquare" amplitude="$amo$" frequency="$freq$" />
+
+          <!-- Feedback loop -->
+          <feedback>
+            <!-- Forward path -->
+            <series>
+              <!-- Controller -->
+              <parallel>
+                <!-- Proportional -->
+                <gain name="Kp" value="$P$" />
+
+                <!--- Integral -->
+                <series>
+                  <gain name="Ki" value="$I$" />
+                  <transferFunction name="integrator" num="1" den="1 0" />
+                </series>
+
+                <!-- Derivative -->
+                <series>
+                  <gain name="Kd" value="$D$" />
+                  <transferFunction name="derivative" num="1 0" den="1" />
+                </series>
+              </parallel>
+
+              <!-- Plant -->
+              $plant$
+            </series>
+
+            <!-- Feedback path -->
+            <!-- Unity gain feedback since no system in feedback path -->
+          </feedback>
+        </series>
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Codex Data Plot</Title>
+      <Author>Peter Martin</Author>
+      <Description>Add a data plot.</Description>
+      <HelpUrl>www.codexdocs.com/guides</HelpUrl>
+      <Shortcut>qdataplot</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>xmin</ID>
+          <ToolTip>Replace with the x-axis minimum.</ToolTip>
+          <Default>0</Default>
+        </Literal>
+        <Literal>
+          <ID>xmax</ID>
+          <ToolTip>Replace with the x-axis maximum.</ToolTip>
+          <Default>10</Default>
+        </Literal>
+        <Literal>
+          <ID>ymin</ID>
+          <ToolTip>Replace with the y-axis minimum.</ToolTip>
+          <Default>0</Default>
+        </Literal>
+        <Literal>
+          <ID>ymax</ID>
+          <ToolTip>Replace with the y-axis maximum.</ToolTip>
+          <Default>10</Default>
+        </Literal>
+        <Literal>
+          <ID>data</ID>
+          <ToolTip>Replace with a dataset.</ToolTip>
+          <Default>0 0; 1 1; 2 2; 3 3</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="XML">
+        <![CDATA[
+        <drawing>
+          <axis name="xaxis" dim="x" min="$xmin$" max="$xmax$"/>
+          <axis name="yaxis" dim="y" min="$ymin$" max="$ymax$"/>
+          <plot>
+            <series>
+              <data>$data$</data>
+            </series>
+          </plot>
+        </drawing>
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Codex CSV Plot</Title>
+      <Author>Peter Martin</Author>
+      <Description>Add a plot of a CSV file.</Description>
+      <HelpUrl>www.codexdocs.com/guides</HelpUrl>
+      <Shortcut>qcsvplot</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>xmin</ID>
+          <ToolTip>Replace with the x-axis minimum.</ToolTip>
+          <Default>0</Default>
+        </Literal>
+        <Literal>
+          <ID>xmax</ID>
+          <ToolTip>Replace with the x-axis maximum.</ToolTip>
+          <Default>10</Default>
+        </Literal>
+        <Literal>
+          <ID>ymin</ID>
+          <ToolTip>Replace with the y-axis minimum.</ToolTip>
+          <Default>0</Default>
+        </Literal>
+        <Literal>
+          <ID>ymax</ID>
+          <ToolTip>Replace with the y-axis maximum.</ToolTip>
+          <Default>10</Default>
+        </Literal>
+        <Literal>
+          <ID>source</ID>
+          <ToolTip>Replace with a csv file path.</ToolTip>
+          <Default><![CDATA[resources\data.csv]]></Default>
+        </Literal>
+      </Declarations>
+      <Code Language="XML">
+        <![CDATA[
+        <drawing>
+          <axis name="xaxis" dim="x" min="$xmin$" max="$xmax$"/>
+          <axis name="yaxis" dim="y" min="$ymin$" max="$ymax$"/>
+          <plot>
+            <series>
+              <data src="$source$"/>
+            </series>
+          </plot>
+        </drawing>
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Codex Data Plot</Title>
+      <Author>Peter Martin</Author>
+      <Description>Add an empty plot that can be target with a probe.</Description>
+      <HelpUrl>www.codexdocs.com/guides</HelpUrl>
+      <Shortcut>qplot</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>xmin</ID>
+          <ToolTip>Replace with the x-axis minimum.</ToolTip>
+          <Default>0</Default>
+        </Literal>
+        <Literal>
+          <ID>xmax</ID>
+          <ToolTip>Replace with the x-axis maximum.</ToolTip>
+          <Default>10</Default>
+        </Literal>
+        <Literal>
+          <ID>ymin</ID>
+          <ToolTip>Replace with the y-axis minimum.</ToolTip>
+          <Default>0</Default>
+        </Literal>
+        <Literal>
+          <ID>ymax</ID>
+          <ToolTip>Replace with the y-axis maximum.</ToolTip>
+          <Default>10</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="XML">
+        <![CDATA[
+        <drawing>
+          <axis name="xaxis" dim="x" min="$xmin$" max="$xmax$"/>
+          <axis name="yaxis" dim="y" min="$ymin$" max="$ymax$"/>
+          <plot>
+            <series name="dataseries" />
+          </plot>
+        </drawing>
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
