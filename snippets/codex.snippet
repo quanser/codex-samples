@@ -14,7 +14,7 @@
         <Literal>
           <ID>doc_title</ID>
           <ToolTip>Replace with the title of the document.</ToolTip>
-          <Default>A Sample Document</Default>
+          <Default>Document Title</Default>
         </Literal>
         <Literal>
           <ID>parent_title</ID>
@@ -42,25 +42,27 @@
         </Literal>
         <Literal>
           <ID>author</ID>
-          <ToolTip>Your name.</ToolTip>
+          <ToolTip>Anonymous</ToolTip>
           <Default>
             Name
           </Default>
         </Literal>
         <Literal>
-          <ID>desc</ID>
+          <ID>abstract</ID>
           <ToolTip>Description of the document.</ToolTip>
           <Default>
-            This is a Codex document
+            This document is for testing purposes only. The material that is presented here should be treated as an example only.
           </Default>
         </Literal>
       </Declarations>
       <Code Language="XML">
-        <![CDATA[<!--
-        Author: $author$
-        Description: $desc$-->
-        
+        <![CDATA[
         <document xmlns="http://resources.codexdocs.com/schema/v1/QDocument.xsd" name="myDocument">
+          <metadata>
+            <title>$doc_title$</title>
+            <creator>$author$</creator>
+            <abstract>$abstract$</abstract>
+          </metadata>
           <title>$doc_title$</title>
 
           <section name="parent_section">
