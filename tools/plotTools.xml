@@ -12,7 +12,6 @@
     series:Add(x + width/2, y - height/2);
     series:Add(x - width/2, y - height/2);
     series:Add(x - width/2, y + height/2);
-    series:Update();
     end
 
     function drawArrow(series, start, finish)
@@ -40,6 +39,7 @@
     end
     
     function drawCircle(series, centre, radius)
+    
     local points = radius * 100;
     local delta = (2 * 3.1415 * radius) / points;
 
@@ -54,7 +54,6 @@
     end
     
     series:Add(centre[1] + radius, centre[2]);
-    
     end
     
     function drawArc(series, startAngle, endAngle, centre, radius)
