@@ -1,0 +1,559 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Codex Curriculum Title Page</Title>
+      <Author>Abbey Desjarlais</Author>
+      <Description>Add a curriculum-themed title page to a Codex document. Requires the curriculumStyles.xml fragment.</Description>
+      <HelpUrl>www.codexdocs.com/guides</HelpUrl>
+      <Shortcut>qctitlepage</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>title_name</ID>
+          <ToolTip>Replace with the name of the section or chapter.</ToolTip>
+          <Default>Title</Default>
+        </Literal>
+        <Literal>
+          <ID>page_content</ID>
+          <ToolTip>Replace with the introductory information for the section or chapter.</ToolTip>
+          <Default>Enter the introductory information for your section.</Default>
+        </Literal>
+        <Literal>
+          <ID>sub_title</ID>
+          <ToolTip>Replace with the title of the first subsection in this section or chapter.</ToolTip>
+          <Default>Enter the title for the subsection.</Default>
+        </Literal>
+        <Literal>
+          <ID>sub_content</ID>
+          <ToolTip>Replace with the rest of the content (subsections, paragraphs, etc) for the section or chapter.</ToolTip>
+          <Default>Enter the rest of the content for this section or chapter here.</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="XML">
+        <![CDATA[
+        <section>
+          <title style="chapterNumber"></title>
+          <p style="chapterTitle">$title_name$</p>
+
+          <p style="title">INTRODUCTION</p>
+          <p>
+             $page_content$
+          </p>
+          <section>
+             <title>$sub_title$</title>
+             $sub_content$
+          </section>
+           <!-- This line can be removed after the curriculumStyles.xml fragment is included --> <p style="invisible">This document is formatted improperly because the curriculumStyles.xml fragment was not included at the beginning of your document.</p> 
+        </section>  
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Codex Curriculum Code Example</Title>
+      <Author>Abbey Desjarlais</Author>
+      <Description>Add a code example to a curriculum-themed Codex document. Requires the curriculumStyles.xml fragment.</Description>
+      <HelpUrl>www.codexdocs.com/guides</HelpUrl>
+      <Shortcut>qccode</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>code_content1</ID>
+          <ToolTip>Replace with a single line of code.</ToolTip>
+          <Default>Enter a line of code.</Default>
+        </Literal>
+        <Literal>
+          <ID>code_content2</ID>
+          <ToolTip>Replace with a single line of code.</ToolTip>
+          <Default>Enter a line of code.</Default>
+        </Literal>
+        <Literal>
+          <ID>code_content3</ID>
+          <ToolTip>Replace with a single line of code.</ToolTip>
+          <Default>Enter a line of code.</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="XML">
+        <![CDATA[
+          <div style="codeBorder">
+            <div style="border">
+              <p style="codeTitle"></p>
+              <style name="paragraphs">
+                <font name="monospace"/>
+              </style>
+              <p>$code_content1$</p>
+              <p>$code_content2$</p>
+              <p>$code_content3$</p>
+            </div>
+          </div>
+           <!-- This line can be removed after the curriculumStyles.xml fragment is included --> <p style="invisible">This document is formatted improperly because the curriculumStyles.xml fragment was not included at the beginning of your document.</p> 
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Codex Curriculum Question and Answer</Title>
+      <Author>Abbey Desjarlais</Author>
+      <Description>Add a question with hidden answer/solution to a curriculum-themed Codex document. Requires the curriculumStyles.xml fragment.</Description>
+      <HelpUrl>www.codexdocs.com/guides</HelpUrl>
+      <Shortcut>qcQA</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>QA_question</ID>
+          <ToolTip>Replace with the question.</ToolTip>
+          <Default>Enter question here.</Default>
+        </Literal>
+        <Literal>
+          <ID>QA_answer</ID>
+          <ToolTip>Replace with the answer or solution.</ToolTip>
+          <Default>Enter full solution or hint to the question in this section. Answer can include paragraphs, equations, tables, etc.</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="XML">
+        <![CDATA[
+         <div style="questionAnswer">
+           <p style="title qNum"></p>
+           <stack orientation="horizontal">
+             <image src="curriculumThemePack\question.png" style="icon"/>
+             <p>$QA_question$</p>
+           </stack>
+           <p style="title">ANSWER</p>
+           <stack orientation="horizontal" name="myStack">
+             <image src="curriculumThemePack\answer.png" style="icon"/>
+             <stack name="answer" style="collapsed">
+                $QA_answer$ 
+             </stack>
+           </stack> 
+           <button content="Show Answer">
+             <onClick>
+               myStack.answer.Style.Visibility = "visible";
+             </onClick>
+           </button> 
+        </div>
+         <!-- This line can be removed after the curriculumStyles.xml fragment is included --> <p style="invisible">This document is formatted improperly because the curriculumStyles.xml fragment was not included at the beginning of your document.</p> 
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Codex Curriculum Question and Answer, with User Input</Title>
+      <Author>Abbey Desjarlais</Author>
+      <Description>Add a question with user-input and a hidden solution to a curriculum-themed Codex document. Requires the curriculumStyles.xml fragment.</Description>
+      <HelpUrl>www.codexdocs.com/guides</HelpUrl>
+      <Shortcut>qcQAinput</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>QAI_question</ID>
+          <ToolTip>Replace with the question.</ToolTip>
+          <Default>Enter question here.</Default>
+        </Literal>
+        <Literal>
+          <ID>QAI_answer</ID>
+          <ToolTip>Replace with the answer to the question. It will be used to check if the user-inputted answer is correct. Be careful not to include accidental spaces.</ToolTip>
+          <Default>Enter answer here.</Default>
+        </Literal>
+        <Literal>
+          <ID>QAI_solution</ID>
+          <ToolTip>Insert solution or hint inside the following section. We recommend not including the final answer in your solution.</ToolTip>
+          <Default>Enter full solution or hint to the question in this section.</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="XML">
+        <![CDATA[
+      <div style="questionAnswer">
+        <p style="title qNum"></p>
+        <stack orientation="horizontal">
+          <image src="curriculumThemePack\question.png" style="icon"/>
+          <p>$QAI_question$</p>
+        </stack>
+        <p style="title">ANSWER</p>
+        <p name="answer" style="collapsed">$QAI_answer$</p>
+        <stack orientation="horizontal" name="stack">
+          <image src="curriculumThemePack\answer.png" style="iconSol"/>
+          <textField name="input" placeholder="Insert Answer Here"/>
+          <image name="mark" src="curriculumThemePack\invisible.png" style="iconSol"/>
+        </stack>
+        <sectionNoTitle name="solution" style="collapsed">
+          $QAI_solution$ 
+        </sectionNoTitle>
+        <button content="Check Answer">
+          <onClick>
+            solution.Style.Visibility = "visible";
+            if input.Text == answer.Text then
+            mark.ImageSource = "curriculumThemePack/right.png";
+            else
+            mark.ImageSource = "curriculumThemePack/wrong.png";
+            end
+          </onClick>
+        </button>
+      </div>
+       <!-- This line can be removed after the curriculumStyles.xml fragment is included --> <p style="invisible">This document is formatted improperly because the curriculumStyles.xml fragment was not included at the beginning of your document.</p> ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Codex Curriculum Question and Answer, with User Input in Scientific Notation</Title>
+      <Author>Abbey Desjarlais</Author>
+      <Description>Add a question with user-input in scientific notation, and a hidden solution to a curriculum-themed Codex document. Requires the curriculumStyles.xml fragment.</Description>
+      <HelpUrl>www.codexdocs.com/guides</HelpUrl>
+      <Shortcut>qcQAsci</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>QASCI_question</ID>
+          <ToolTip>Replace with the question. Ensure that you specify the number of significant digits in the answer.</ToolTip>
+          <Default>Enter question here.</Default>
+        </Literal>
+        <Literal>
+          <ID>QASCI_answerA</ID>
+          <ToolTip>Replace with the significand of the answer in scientific notation. i.e. For answer 1.2 x 10^-1, insert 1.2 here. Be careful not to include accidental spaces.</ToolTip>
+          <Default>Enter significand here.</Default>
+        </Literal>
+        <Literal>
+          <ID>QASCI_answerB</ID>
+          <ToolTip>Replace with the exponent of the answer in scientific notation. i.e. For answer 1.2 x 10^-1, insert -1 here. Be careful not to include accidental spaces.</ToolTip>
+          <Default>Enter exponent here.</Default>
+        </Literal>
+        <Literal>
+          <ID>QASCI_solution</ID>
+          <ToolTip>Insert solution or hint inside the following section. We recommend not including the final answer in your solution.</ToolTip>
+          <Default>Enter full solution or hint to the question in this section.</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="XML">
+        <![CDATA[
+      <div style="questionAnswer">
+        <p style="title qNum"></p>
+        <stack orientation="horizontal">
+          <image src="curriculumThemePack\question.png" style="icon"/>
+          <p>$QASCI_question$ <i>Answer should be in scientific notation to two significant figures, i.e. $$ a.aa \times 10^{\pm b} $$ </i></p>
+        </stack>
+        <p style="title">ANSWER</p>
+        <p name="answerSig" style="collapsed">$QASCI_answerA$</p>
+        <p name="answerExp" style="collapsed">$QASCI_answerB$</p>
+        <stack orientation="horizontal" name="stack">
+          <image src="curriculumThemePack\answer.png" style="iconSci"/>
+          <textField name="inputSig" placeholder="a.aa" style="sciText"/>
+          <p style="sciNot">$\times$ 10^ </p>
+          <textField name="inputExp" placeholder="b"/>
+          <image name="mark" src="curriculumThemePack\invisible.png" style="iconSci"/>
+        </stack>
+        <sectionNoTitle name="solution" style="collapsed">
+          $QASCI_solution$
+        </sectionNoTitle>
+        <button content="Check Answer">
+          <onClick>
+            if inputSig.Text == answerSig.Text and inputExp.Text == answerExp.Text then
+            mark.ImageSource = "curriculumThemePack/right.png";
+            else
+            mark.ImageSource = "curriculumThemePack/wrong.png";
+            solution.Style.Visibility = "visible";
+            end
+          </onClick>
+        </button>
+      </div>
+       <!-- This line can be removed after the curriculumStyles.xml fragment is included --> <p style="invisible">This document is formatted improperly because the curriculumStyles.xml fragment was not included at the beginning of your document.</p> ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Codex Curriculum Multiple Choice Question</Title>
+      <Author>Abbey Desjarlais</Author>
+      <Description>Add a multiple choice question with a hidden solution to a curriculum-themed Codex document. Requires the curriculumStyles.xml fragment.</Description>
+      <HelpUrl>www.codexdocs.com/guides</HelpUrl>
+      <Shortcut>qcMC</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>MC_question</ID>
+          <ToolTip>Replace with the question.</ToolTip>
+          <Default>Enter question here.</Default>
+        </Literal>
+        <Literal>
+          <ID>MC_answer</ID>
+          <ToolTip>Replace with the letter that corresponds to the right answer. E.g. "A".</ToolTip>
+          <Default>Enter the capitalized letter that corresponds to the answer here.</Default>
+        </Literal>
+        <Literal>
+          <ID>MC_answerA</ID>
+          <ToolTip>Replace with choice A.</ToolTip>
+          <Default>Enter choice A.</Default>
+        </Literal>
+        <Literal>
+          <ID>MC_answerB</ID>
+          <ToolTip>Replace with choice B.</ToolTip>
+          <Default>Enter choice B.</Default>
+        </Literal>
+        <Literal>
+          <ID>MC_answerC</ID>
+          <ToolTip>Replace with choice C.</ToolTip>
+          <Default>Enter choice C.</Default>
+        </Literal>
+        <Literal>
+          <ID>MC_solution</ID>
+          <ToolTip>Insert solution or hint inside the following section. We recommend not including the final answer in your solution.</ToolTip>
+          <Default>Enter full solution or hint to the question in this section.</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="XML">
+        <![CDATA[
+      <div style="questionAnswer">
+        <p style="title qNum"></p>
+        <stack orientation="horizontal">
+          <image src="curriculumThemePack\question.png" style="icon"/>
+          <p>$MC_question$</p>
+        </stack>
+        <p style="title">ANSWER</p>
+        <p name="answer" style="collapsed">$MC_answer$</p>
+        <stack orientation="horizontal">
+          <image src="curriculumThemePack\answer.png" style="iconMulti"/>
+          <stack style="multiStackStyle">
+            <stack orientation="horizontal">
+              <button content="A">
+                <onClick>final.Text="A"; yourAnswer.Style.Visibility = "visible";</onClick>
+              </button>
+              <p style="multiChoiceStyle">$MC_answerA$</p>
+            </stack>
+            <stack orientation="horizontal">
+              <button content="B">
+                <onClick>final.Text="B"; yourAnswer.Style.Visibility = "visible";</onClick>
+              </button>
+              <p style="multiChoiceStyle">$MC_answerB$</p>
+            </stack>
+            <stack orientation="horizontal">
+              <button content="C">
+                <onClick>final.Text="C"; yourAnswer.Style.Visibility = "visible";</onClick>
+              </button>
+              <p style="multiChoiceStyle">$MC_answerC$</p>
+            </stack>
+            <!-- Insert the following code for each subsequent choice (Choice D, E, F, etc).  Delete if unnecessary.
+            <stack orientation="horizontal">
+              <button content="Replace with Next Letter">
+                <onClick>final.Text="Replace with Next Letter";</onClick>
+              </button>
+              <p style="multiChoiceStyle">Choice</p>
+            </stack> -->
+          </stack>
+          <image name="mark" src="curriculumThemePack\invisible.png" style="iconMulti"/>
+        </stack>
+        <p name="yourAnswer" style="finalStyle collapsed"><i>You selected:</i></p>
+        <p name="final" style="finalStyle"/>
+        <sectionNoTitle name="solution" style="collapsed">
+          $MC_solution$
+        </sectionNoTitle>
+          <button content="Check Answer">
+            <onClick>
+              solution.Style.Visibility = "visible";
+              if final.Text == answer.Text then
+              mark.ImageSource = "curriculumThemePack/right.png";
+              else
+              mark.ImageSource = "curriculumThemePack/wrong.png";
+              end
+            </onClick>
+          </button>
+      </div>
+       <!-- This line can be removed after the curriculumStyles.xml fragment is included --> <p style="invisible">This document is formatted improperly because the curriculumStyles.xml fragment was not included at the beginning of your document.</p> ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Codex Curriculum True or False Question</Title>
+      <Author>Abbey Desjarlais</Author>
+      <Description>Add a true or false question and a hidden solution to a curriculum-themed Codex document. Requires the curriculumStyles.xml fragment.</Description>
+      <HelpUrl>www.codexdocs.com/guides</HelpUrl>
+      <Shortcut>qcTF</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>TF_question</ID>
+          <ToolTip>Replace with the question.</ToolTip>
+          <Default>Enter true or false question here.</Default>
+        </Literal>
+        <Literal>
+          <ID>TF_answer</ID>
+          <ToolTip>Replace with True or False. Be careful not to include accidental spaces or characters.</ToolTip>
+          <Default>Enter True or False here. Do not include extra characters. First letter must be capitalized.</Default>
+        </Literal>      
+        <Literal>
+          <ID>TF_solution</ID>
+          <ToolTip>Insert solution or hint inside the following section. We recommend not including the final answer in your solution.</ToolTip>
+          <Default>Enter full solution or hint to the question in this section.</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="XML">
+        <![CDATA[
+       <div style="questionAnswer">
+        <p style="title qNum"></p>
+        <stack orientation="horizontal">
+          <image src="curriculumThemePack\question.png" style="icon"/>
+          <p>$TF_question$</p>
+        </stack>
+        <p style="title">ANSWER</p>
+        <p name="answer" style="collapsed">$TF_answer$</p>
+        <stack orientation="horizontal">
+          <image src="curriculumThemePack\answer.png" style="iconTF"/>
+          <button content="True" style="TF" name="trueButt">
+            <onClick>final.Text = "True"; yourAnswer.Style.Visibility = "visible";</onClick>
+          </button>
+          <button content="False" style="TF" name="falseButt">
+            <onClick>final.Text = "False"; yourAnswer.Style.Visibility = "visible";</onClick>
+          </button>
+          <image name="mark" src="curriculumThemePack\invisible.png" style="iconTF"/>
+        </stack>
+        <p name="yourAnswer" style="finalStyle collapsed"><i>You selected:</i></p>
+        <p name="final" style="finalStyle"/>
+        <sectionNoTitle name="solution" style="collapsed">
+          $TF_solution$
+        </sectionNoTitle>
+        <button content="Check Answer">
+          <onClick>
+            solution.Style.Visibility = "visible";
+            if final.Text == answer.Text then
+            mark.ImageSource = "curriculumThemePack/right.png";
+            else
+            mark.ImageSource = "curriculumThemePack/wrong.png";
+            end
+          </onClick>
+        </button>
+      </div>
+       <!-- This line can be removed after the curriculumStyles.xml fragment is included --> <p style="invisible">This document is formatted improperly because the curriculumStyles.xml fragment was not included at the beginning of your document.</p> ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Codex Curriculum Fill in the Blank Question</Title>
+      <Author>Abbey Desjarlais</Author>
+      <Description>Add a fill-in-the-blank style question with a hidden solution to a curriculum-themed Codex document. Requires the curriculumStyles.xml fragment.</Description>
+      <HelpUrl>www.codexdocs.com/guides</HelpUrl>
+      <Shortcut>qcFB</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>Fill_question</ID>
+          <ToolTip>Replace with the question.</ToolTip>
+          <Default>Enter fill-in-the-blank question here.</Default>
+        </Literal>
+        <Literal>
+          <ID>Fill_answer1</ID>
+          <ToolTip>Replace with the answer to the first "blank". Be careful not to include accidental spaces or characters.</ToolTip>
+          <Default>Enter first "blank" answer here.</Default>
+        </Literal>
+        <Literal>
+          <ID>Fill_answer2</ID>
+          <ToolTip>Replace with the answer to the second "blank". Be careful not to include accidental spaces or characters.</ToolTip>
+          <Default>Enter second "blank" answer here.</Default>
+        </Literal>
+        <Literal>
+          <ID>Fill_solution</ID>
+          <ToolTip>Insert solution or hint inside the following section. We recommend not including the final answer in your solution.</ToolTip>
+          <Default>Enter full solution or hint to the question in this section.</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="XML">
+        <![CDATA[
+       <div style="questionAnswer">
+        <p style="title qNum"></p>
+        <stack orientation="horizontal">
+          <image src="curriculumThemePack\question.png" style="icon"/>
+          <p>$Fill_question$ Replace "blank" words with $$ \underline{\hspace{1.5cm}} $$.</p>
+        </stack>
+        <p style="title">ANSWER</p>
+        <p name="answer1" style="collapsed">$Fill_answer1$</p>
+        <!-- If there is only one "blank" in the question, delete the next line: -->
+        <p name="answer2" style="collapsed">$Fill_answer2$</p>
+        <!-- For each additional "blank", insert the following code:
+        <p name="answer3" style="collapsed">Enter answer here.</p>
+        Be sure to rename each subsequent paragraph, i.e. name="answer4", etc. -->
+        <stack orientation="horizontal" name="stack">
+          <image src="curriculumThemePack\answer.png" style="iconSol"/>
+          <stack>
+            <textField name="input1" placeholder="Insert First Blank Here"/>
+            <textField name="input2" placeholder="Insert Second Blank Here"/>
+            <!-- For each additional "blank", insert the following code:
+            <textField name="input3" placeholder="Insert Third Blank Here"/>
+            Be sure to rename each subsequent textField, i.e. name="input4", etc. -->
+          </stack>
+          <image name="mark" src="curriculumThemePack\invisible.png" style="iconSol"/>
+        </stack>
+        <sectionNoTitle name="solution" style="collapsed">
+          $Fill_solution$
+        </sectionNoTitle>
+        <button content="Check Answer">
+          <onClick>
+            solution.Style.Visibility = "visible";
+            <!-- If there is only one "blank", the "if statement" needs to be reduced to: 
+                 if input1.Text == answer1.Text then -->
+            <!-- If there are extra "blanks", the "if statement" needs to be appended to include a check for the correct answer. Use 'and' in between each additional check. For example, 
+                 if input1.Text == answer1.Text and input2.Text == answer2.Text and input3.Text == answer3.Text and input4.Text == answer4.Text then -->
+            if input1.Text == answer1.Text and input2.Text == answer2.Text then
+            mark.ImageSource = "curriculumThemePack/right.png";
+            else
+            mark.ImageSource = "curriculumThemePack/wrong.png";
+            end
+          </onClick>
+        </button>
+      </div>
+       <!-- This line can be removed after the curriculumStyles.xml fragment is included --> <p style="invisible">This document is formatted improperly because the curriculumStyles.xml fragment was not included at the beginning of your document.</p> ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>  
+  
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Codex Curriculum Summary</Title>
+      <Author>Abbey Desjarlais</Author>
+      <Description>Add a summary block to a curriculum-themed Codex document. Requires the curriculumStyles.xml fragment.</Description>
+      <HelpUrl>www.codexdocs.com/guides</HelpUrl>
+      <Shortcut>qcsummary</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>summary_text</ID>
+          <ToolTip>Replace with a summary of your section or chapter.</ToolTip>
+          <Default>Enter a summary for your section or subsection.</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="XML">
+        <![CDATA[
+      <div style="summary">
+        <div style="border">
+          <p style="title">SUMMARY</p>
+          <p>
+            $summary_text$
+          </p>
+        </div>
+      </div>
+       <!-- This line can be removed after the curriculumStyles.xml fragment is included --> <p style="invisible">This document is formatted improperly because the curriculumStyles.xml fragment was not included at the beginning of your document.</p> ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+ 
+</CodeSnippets>
