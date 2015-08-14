@@ -2,7 +2,7 @@
 
 ---------------------------------------
 
-This `git` repository stores the knowledge app samples for the for the [**qdex**](http://qdexapps.com) framework.
+This `git` repository stores the knowledge app samples for the [**qdex**](http://qdexapps.com) framework.
 
 > This repository contains forward-looking information on [Quanser Consulting Inc](http://www.quanser.com "Quanser")'s [**qdex**](http://qdexapps.com) initiative. Some of the content of this repository describes future plans or projected functionality under development. Additionally, information contained on this repository should be treated as confidential and should only be shared on a need to know basis and with the consent of [Quanser Consulting Inc](http://www.quanser.com "Quanser").
 
