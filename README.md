@@ -1,4 +1,4 @@
-![qdex](http://resources.qdexapps.com/public/RedHorizontalLogo.png)
+![qdex](http://resources.qdexapps.com/banners/samples.png)
 
 ---------------------------------------
 
