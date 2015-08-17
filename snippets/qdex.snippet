@@ -122,7 +122,7 @@
         <Literal>
           <ID>butt_text</ID>
           <ToolTip>Replace with the content string for your button.</ToolTip>
-          <Default>Click Me</Default>
+          <Default>Do Action</Default>
         </Literal>
         <Literal>
           <ID>cond1</ID>
@@ -137,17 +137,14 @@
       </Declarations>
       <Code Language="XML">
         <![CDATA[
-        <script>
-          local switch = 0;
-        </script>
-
         <button name="myToggle" content="$butt_text$">
           <onClick>
-            switch = 1 - switch;
-            if (switch == 0) then
+            if myToggle.Text == "Do Action" then
               $cond1$
+              myToggle.Text = "Undo Action";
             else
               $cond2$
+              myToggle.Text = "Do Action";
             end
           </onClick>
         </button>
@@ -618,152 +615,6 @@
             <!-- Unity gain feedback since no system in feedback path -->
           </feedback>
         </series>
-        ]]>
-      </Code>
-    </Snippet>
-  </CodeSnippet>
-  <CodeSnippet Format="1.0.0">
-    <Header>
-      <Title>qdex Data Plot</Title>
-      <Author>Peter Martin</Author>
-      <Description>Add a data plot.</Description>
-      <HelpUrl>qdexapps.com/guides</HelpUrl>
-      <Shortcut>qdataplot</Shortcut>
-    </Header>
-    <Snippet>
-      <Declarations>
-        <Literal>
-          <ID>xmin</ID>
-          <ToolTip>Replace with the x-axis minimum.</ToolTip>
-          <Default>0</Default>
-        </Literal>
-        <Literal>
-          <ID>xmax</ID>
-          <ToolTip>Replace with the x-axis maximum.</ToolTip>
-          <Default>10</Default>
-        </Literal>
-        <Literal>
-          <ID>ymin</ID>
-          <ToolTip>Replace with the y-axis minimum.</ToolTip>
-          <Default>0</Default>
-        </Literal>
-        <Literal>
-          <ID>ymax</ID>
-          <ToolTip>Replace with the y-axis maximum.</ToolTip>
-          <Default>10</Default>
-        </Literal>
-        <Literal>
-          <ID>data</ID>
-          <ToolTip>Replace with a dataset.</ToolTip>
-          <Default>0 0; 1 1; 2 2; 3 3</Default>
-        </Literal>
-      </Declarations>
-      <Code Language="XML">
-        <![CDATA[
-        <drawing>
-          <axis name="xaxis" dim="x" min="$xmin$" max="$xmax$"/>
-          <axis name="yaxis" dim="y" min="$ymin$" max="$ymax$"/>
-          <plot>
-            <series>
-              <data>$data$</data>
-            </series>
-          </plot>
-        </drawing>
-        ]]>
-      </Code>
-    </Snippet>
-  </CodeSnippet>
-  <CodeSnippet Format="1.0.0">
-    <Header>
-      <Title>qdex CSV Plot</Title>
-      <Author>Peter Martin</Author>
-      <Description>Add a plot of a CSV file.</Description>
-      <HelpUrl>qdexapps.com/guides</HelpUrl>
-      <Shortcut>qcsvplot</Shortcut>
-    </Header>
-    <Snippet>
-      <Declarations>
-        <Literal>
-          <ID>xmin</ID>
-          <ToolTip>Replace with the x-axis minimum.</ToolTip>
-          <Default>0</Default>
-        </Literal>
-        <Literal>
-          <ID>xmax</ID>
-          <ToolTip>Replace with the x-axis maximum.</ToolTip>
-          <Default>10</Default>
-        </Literal>
-        <Literal>
-          <ID>ymin</ID>
-          <ToolTip>Replace with the y-axis minimum.</ToolTip>
-          <Default>0</Default>
-        </Literal>
-        <Literal>
-          <ID>ymax</ID>
-          <ToolTip>Replace with the y-axis maximum.</ToolTip>
-          <Default>10</Default>
-        </Literal>
-        <Literal>
-          <ID>source</ID>
-          <ToolTip>Replace with a csv file path.</ToolTip>
-          <Default><![CDATA[resources\data.csv]]></Default>
-        </Literal>
-      </Declarations>
-      <Code Language="XML">
-        <![CDATA[
-        <drawing>
-          <axis name="xaxis" dim="x" min="$xmin$" max="$xmax$"/>
-          <axis name="yaxis" dim="y" min="$ymin$" max="$ymax$"/>
-          <plot>
-            <series>
-              <data src="$source$"/>
-            </series>
-          </plot>
-        </drawing>
-        ]]>
-      </Code>
-    </Snippet>
-  </CodeSnippet>
-  <CodeSnippet Format="1.0.0">
-    <Header>
-      <Title>qdex Data Plot</Title>
-      <Author>Peter Martin</Author>
-      <Description>Add an empty plot that can be target with a probe.</Description>
-      <HelpUrl>qdexapps.com/guides</HelpUrl>
-      <Shortcut>qplot</Shortcut>
-    </Header>
-    <Snippet>
-      <Declarations>
-        <Literal>
-          <ID>xmin</ID>
-          <ToolTip>Replace with the x-axis minimum.</ToolTip>
-          <Default>0</Default>
-        </Literal>
-        <Literal>
-          <ID>xmax</ID>
-          <ToolTip>Replace with the x-axis maximum.</ToolTip>
-          <Default>10</Default>
-        </Literal>
-        <Literal>
-          <ID>ymin</ID>
-          <ToolTip>Replace with the y-axis minimum.</ToolTip>
-          <Default>0</Default>
-        </Literal>
-        <Literal>
-          <ID>ymax</ID>
-          <ToolTip>Replace with the y-axis maximum.</ToolTip>
-          <Default>10</Default>
-        </Literal>
-      </Declarations>
-      <Code Language="XML">
-        <![CDATA[
-        <drawing>
-          <axis name="xaxis" dim="x" min="$xmin$" max="$xmax$"/>
-          <axis name="yaxis" dim="y" min="$ymin$" max="$ymax$"/>
-          <plot>
-            <series name="dataseries" />
-          </plot>
-        </drawing>
         ]]>
       </Code>
     </Snippet>
