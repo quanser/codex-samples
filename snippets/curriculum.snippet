@@ -86,8 +86,8 @@
         <![CDATA[
           <!-- THE FOLLOWING SNIPPET CAN ONLY BE USED IN CONJUNCTION WITH THE CURRICULUM THEME PACK -->
           <!-- See http://qdexapps.com/guides/curriculumthemepack for more information -->
-          <div style="codeBorder">
-            <div style="border">
+          <stack style="summary">
+            <stack style="border">
               <p style="codeTitle"></p>
               <style name="paragraphs">
                 <font name="monospace"/>
@@ -95,8 +95,8 @@
               <p>$code_content1$</p>
               <p>$code_content2$</p>
               <p>$code_content3$</p>
-            </div>
-          </div>
+            </stack>
+          </stack>
            <!-- This line can be removed after the curriculumStyles.xml fragment is included --> <p style="invisible">This document is formatted improperly because the curriculumStyles.xml fragment was not included at the beginning of your document.</p> 
         ]]>
       </Code>
@@ -128,25 +128,25 @@
         <![CDATA[
          <!-- THE FOLLOWING SNIPPET CAN ONLY BE USED IN CONJUNCTION WITH THE CURRICULUM THEME PACK -->
          <!-- See http://qdexapps.com/guides/curriculumthemepack for more information -->
-         <div style="questionAnswer">
-           <p style="title qNum"></p>
-           <stack orientation="horizontal">
-             <image src="curriculumThemePack\question.png" style="icon"/>
-             <p>$QA_question$</p>
-           </stack>
-           <p style="title">ANSWER</p>
-           <stack orientation="horizontal" name="myStack">
-             <image src="curriculumThemePack\answer.png" style="icon"/>
-             <stack name="answer" style="collapsed">
-                $QA_answer$ 
-             </stack>
-           </stack> 
-           <button content="Show Answer">
-             <onClick>
-               myStack.answer.Style.Visibility = "visible";
-             </onClick>
-           </button> 
-        </div>
+      <stack style="questionAnswer">
+      <p style="title qNum"></p>
+      <stack orientation="horizontal">
+        <image src="curriculumThemePack\question.png" style="icon"/>
+        <p>$QA_question$</p>
+      </stack>
+      <p style="title">ANSWER</p>
+      <stack orientation="horizontal" name="myStack">
+        <image src="curriculumThemePack\answer.png" style="icon"/>
+        <stack name="answer" style="collapsed">
+          <p> $QA_answer$ </p>
+        </stack>
+      </stack>
+      <button content="Show Answer">
+        <onClick>
+          myStack.answer.Style.Visibility = "visible";
+        </onClick>
+      </button>
+    </stack>
          <!-- This line can be removed after the curriculumStyles.xml fragment is included --> <p style="invisible">This document is formatted improperly because the curriculumStyles.xml fragment was not included at the beginning of your document.</p> 
         ]]>
       </Code>
@@ -176,40 +176,40 @@
         <Literal>
           <ID>QAI_solution</ID>
           <ToolTip>Insert solution or hint inside the following section. We recommend not including the final answer in your solution.</ToolTip>
-          <Default>Enter full solution or hint to the question in this section.</Default>
+          <Default>Enter full solution or hint to the question inside this stack. You can include images, equations, etc.</Default>
         </Literal>
       </Declarations>
       <Code Language="XML">
         <![CDATA[
       <!-- THE FOLLOWING SNIPPET CAN ONLY BE USED IN CONJUNCTION WITH THE CURRICULUM THEME PACK -->
       <!-- See http://qdexapps.com/guides/curriculumthemepack for more information -->  
-      <div style="questionAnswer">
-        <p style="title qNum"></p>
-        <stack orientation="horizontal">
-          <image src="curriculumThemePack\question.png" style="icon"/>
-          <p>$QAI_question$</p>
-        </stack>
-        <p style="title">ANSWER</p>
-        <p name="answer" style="collapsed">$QAI_answer$</p>
-        <stack orientation="horizontal" name="stack">
-          <image src="curriculumThemePack\answer.png" style="iconSol"/>
-          <textField name="input" placeholder="Insert Answer Here"/>
-          <image name="mark" src="curriculumThemePack\invisible.png" style="iconSol"/>
-        </stack>
-        <sectionNoTitle name="solution" style="collapsed">
-          $QAI_solution$ 
-        </sectionNoTitle>
-        <button content="Check Answer">
-          <onClick>
-            solution.Style.Visibility = "visible";
-            if input.Text == answer.Text then
-            mark.ImageSource = "curriculumThemePack/right.png";
-            else
-            mark.ImageSource = "curriculumThemePack/wrong.png";
-            end
-          </onClick>
-        </button>
-      </div>
+      <stack style="questionAnswer">
+      <p style="title qNum"></p>
+      <stack orientation="horizontal">
+        <image src="curriculumThemePack\question.png" style="icon"/>
+        <p>$QAI_question$</p>
+      </stack>
+      <p style="title">ANSWER</p>
+      <p name="answer" style="collapsed">$QAI_answer$</p>
+      <stack orientation="horizontal" name="stack">
+        <image src="curriculumThemePack\answer.png" style="iconSol"/>
+        <textField name="input" placeholder="Insert Answer Here"/>
+        <image name="mark" src="curriculumThemePack\invisible.png" style="iconSol"/>
+      </stack>
+      <stack name="solution" style="collapsed">
+        <p> $QAI_solution$ </p>
+      </stack>
+      <button content="Check Answer">
+        <onClick>
+          solution.Style.Visibility = "visible";
+          if stack.input.Text == answer.Text then
+          stack.mark.ImageSource = "curriculumThemePack/right.png";
+          else
+          stack.mark.ImageSource = "curriculumThemePack/wrong.png";
+          end
+        </onClick>
+      </button>
+    </stack>
        <!-- This line can be removed after the curriculumStyles.xml fragment is included --> <p style="invisible">This document is formatted improperly because the curriculumStyles.xml fragment was not included at the beginning of your document.</p> ]]>
       </Code>
     </Snippet>
@@ -228,7 +228,7 @@
         <Literal>
           <ID>QASCI_question</ID>
           <ToolTip>Replace with the question. Ensure that you specify the number of significant digits in the answer.</ToolTip>
-          <Default>Enter question here.</Default>
+          <Default>Enter question here. Include information on number of significant digits. For example: </Default>
         </Literal>
         <Literal>
           <ID>QASCI_answerA</ID>
@@ -243,43 +243,45 @@
         <Literal>
           <ID>QASCI_solution</ID>
           <ToolTip>Insert solution or hint inside the following section. We recommend not including the final answer in your solution.</ToolTip>
-          <Default>Enter full solution or hint to the question in this section.</Default>
+          <Default>Enter full solution or hint to the question inside this stack. You can include images, equations, etc.</Default>
         </Literal>
       </Declarations>
       <Code Language="XML">
         <![CDATA[
       <!-- THE FOLLOWING SNIPPET CAN ONLY BE USED IN CONJUNCTION WITH THE CURRICULUM THEME PACK -->
       <!-- See http://qdexapps.com/guides/curriculumthemepack for more information -->  
-      <div style="questionAnswer">
-        <p style="title qNum"></p>
-        <stack orientation="horizontal">
-          <image src="curriculumThemePack\question.png" style="icon"/>
-          <p>$QASCI_question$ <i>Answer should be in scientific notation to two significant figures, i.e. $$ a.aa \times 10^{\pm b} $$ </i></p>
-        </stack>
-        <p style="title">ANSWER</p>
-        <p name="answerSig" style="collapsed">$QASCI_answerA$</p>
-        <p name="answerExp" style="collapsed">$QASCI_answerB$</p>
-        <stack orientation="horizontal" name="stack">
-          <image src="curriculumThemePack\answer.png" style="iconSci"/>
-          <textField name="inputSig" placeholder="a.aa" style="sciText"/>
-          <p style="sciNot">$$\times$$ 10^ </p>
-          <textField name="inputExp" placeholder="b"/>
-          <image name="mark" src="curriculumThemePack\invisible.png" style="iconSci"/>
-        </stack>
-        <sectionNoTitle name="solution" style="collapsed">
-          $QASCI_solution$
-        </sectionNoTitle>
-        <button content="Check Answer">
-          <onClick>
-            if inputSig.Text == answerSig.Text and inputExp.Text == answerExp.Text then
-            mark.ImageSource = "curriculumThemePack/right.png";
-            else
-            mark.ImageSource = "curriculumThemePack/wrong.png";
-            solution.Style.Visibility = "visible";
-            end
-          </onClick>
-        </button>
-      </div>
+      <stack style="questionAnswer">
+      <p style="title qNum"></p>
+      <stack orientation="horizontal">
+        <image src="curriculumThemePack\question.png" style="icon"/>
+        <p>
+          $QASCI_question$ <i>Answer should be in scientific notation to two significant figures, i.e. $$ a.aa \times 10^{\pm b} $$ </i>
+        </p>
+      </stack>
+      <p style="title">ANSWER</p>
+      <p name="answerSig" style="collapsed">$QASCI_answerA$</p>
+      <p name="answerExp" style="collapsed">$QASCI_answerB$</p>
+      <stack orientation="horizontal" name="stack">
+        <image src="curriculumThemePack\answer.png" style="iconSci"/>
+        <textField name="inputSig" placeholder="a.aa" style="sciText"/>
+        <p style="sciNot">$$\times$$ 10^ </p>
+        <textField name="inputExp" placeholder="b" style="exponentStyle"/>
+        <image name="mark" src="curriculumThemePack\invisible.png" style="iconSci"/>
+      </stack>
+      <stack name="solution" style="collapsed">
+        <p> $QASCI_solution$ </p>
+      </stack>
+      <button content="Check Answer">
+        <onClick>
+          if stack.inputSig.Text == answerSig.Text and stack.inputExp.Text == answerExp.Text then
+          stack.mark.ImageSource = "curriculumThemePack/right.png";
+          else
+          stack.mark.ImageSource = "curriculumThemePack/wrong.png";
+          solution.Style.Visibility = "visible";
+          end
+        </onClick>
+      </button>
+    </stack>
        <!-- This line can be removed after the curriculumStyles.xml fragment is included --> <p style="invisible">This document is formatted improperly because the curriculumStyles.xml fragment was not included at the beginning of your document.</p> ]]>
       </Code>
     </Snippet>
@@ -323,68 +325,70 @@
         <Literal>
           <ID>MC_solution</ID>
           <ToolTip>Insert solution or hint inside the following section. We recommend not including the final answer in your solution.</ToolTip>
-          <Default>Enter full solution or hint to the question in this section.</Default>
+          <Default>Enter full solution or hint to the question inside this stack. You can include images, equations, etc.</Default>
         </Literal>
       </Declarations>
       <Code Language="XML">
         <![CDATA[
       <!-- THE FOLLOWING SNIPPET CAN ONLY BE USED IN CONJUNCTION WITH THE CURRICULUM THEME PACK -->
       <!-- See http://qdexapps.com/guides/curriculumthemepack for more information -->  
-      <div style="questionAnswer">
-        <p style="title qNum"></p>
-        <stack orientation="horizontal">
-          <image src="curriculumThemePack\question.png" style="icon"/>
-          <p>$MC_question$</p>
-        </stack>
-        <p style="title">ANSWER</p>
-        <p name="answer" style="collapsed">$MC_answer$</p>
-        <stack orientation="horizontal">
-          <image src="curriculumThemePack\answer.png" style="iconMulti"/>
-          <stack style="multiStackStyle">
-            <stack orientation="horizontal">
-              <button content="A">
-                <onClick>final.Text="A"; yourAnswer.Style.Visibility = "visible";</onClick>
-              </button>
-              <p style="multiChoiceStyle">$MC_answerA$</p>
-            </stack>
-            <stack orientation="horizontal">
-              <button content="B">
-                <onClick>final.Text="B"; yourAnswer.Style.Visibility = "visible";</onClick>
-              </button>
-              <p style="multiChoiceStyle">$MC_answerB$</p>
-            </stack>
-            <stack orientation="horizontal">
-              <button content="C">
-                <onClick>final.Text="C"; yourAnswer.Style.Visibility = "visible";</onClick>
-              </button>
-              <p style="multiChoiceStyle">$MC_answerC$</p>
-            </stack>
-            <!-- Insert the following code for each subsequent choice (Choice D, E, F, etc).  Delete if unnecessary.
+     <stack style="questionAnswer">
+      <p style="title qNum"></p>
+      <stack orientation="horizontal">
+        <image src="curriculumThemePack\question.png" style="icon"/>
+        <p>$MC_question$</p>
+      </stack>
+      <p style="title">ANSWER</p>
+      <p name="answer" style="collapsed">$MC_answer$</p>
+      <stack orientation="horizontal" name="stack">
+        <image src="curriculumThemePack\answer.png" style="iconMulti"/>
+        <stack style="multiStackStyle">
+          <stack orientation="horizontal">
+            <button content="A">
+              <onClick>final.Text="A"; yourAnswer.Style.Visibility = "visible";</onClick>
+            </button>
+            <p style="multiChoiceStyle">$MC_answerA$</p>
+          </stack>
+          <stack orientation="horizontal">
+            <button content="B">
+              <onClick>final.Text="B"; yourAnswer.Style.Visibility = "visible";</onClick>
+            </button>
+            <p style="multiChoiceStyle">$MC_answerB$</p>
+          </stack>
+          <stack orientation="horizontal">
+            <button content="C">
+              <onClick>final.Text="C"; yourAnswer.Style.Visibility = "visible";</onClick>
+            </button>
+            <p style="multiChoiceStyle">$MC_answerC$</p>
+          </stack>
+          <!-- Insert the following code for each subsequent choice (Choice D, E, F, etc).  Delete if unnecessary.
             <stack orientation="horizontal">
               <button content="Replace with Next Letter">
                 <onClick>final.Text="Replace with Next Letter";</onClick>
               </button>
               <p style="multiChoiceStyle">Choice</p>
             </stack> -->
-          </stack>
-          <image name="mark" src="curriculumThemePack\invisible.png" style="iconMulti"/>
         </stack>
-        <p name="yourAnswer" style="finalStyle collapsed"><i>You selected:</i></p>
-        <p name="final" style="finalStyle"/>
-        <sectionNoTitle name="solution" style="collapsed">
-          $MC_solution$
-        </sectionNoTitle>
-          <button content="Check Answer">
-            <onClick>
-              solution.Style.Visibility = "visible";
-              if final.Text == answer.Text then
-              mark.ImageSource = "curriculumThemePack/right.png";
-              else
-              mark.ImageSource = "curriculumThemePack/wrong.png";
-              end
-            </onClick>
-          </button>
-      </div>
+        <image name="mark" src="curriculumThemePack\invisible.png" style="iconMulti"/>
+      </stack>
+      <p name="yourAnswer" style="finalStyle collapsed">
+        <i>You selected:</i>
+      </p>
+      <p name="final" style="finalStyle"/>
+      <stack name="solution" style="collapsed">
+        <p> $MC_solution$ </p>
+      </stack>
+      <button content="Check Answer">
+        <onClick>
+          solution.Style.Visibility = "visible";
+          if final.Text == answer.Text then
+          stack.mark.ImageSource = "curriculumThemePack/right.png";
+          else
+          stack.mark.ImageSource = "curriculumThemePack/wrong.png";
+          end
+        </onClick>
+      </button>
+    </stack>
        <!-- This line can be removed after the curriculumStyles.xml fragment is included --> <p style="invisible">This document is formatted improperly because the curriculumStyles.xml fragment was not included at the beginning of your document.</p> ]]>
       </Code>
     </Snippet>
@@ -413,47 +417,49 @@
         <Literal>
           <ID>TF_solution</ID>
           <ToolTip>Insert solution or hint inside the following section. We recommend not including the final answer in your solution.</ToolTip>
-          <Default>Enter full solution or hint to the question in this section.</Default>
+          <Default>Enter full solution or hint to the question inside this stack. You can include images, equations, etc.</Default>
         </Literal>
       </Declarations>
       <Code Language="XML">
         <![CDATA[
        <!-- THE FOLLOWING SNIPPET CAN ONLY BE USED IN CONJUNCTION WITH THE CURRICULUM THEME PACK -->
        <!-- See http://qdexapps.com/guides/curriculumthemepack for more information -->
-       <div style="questionAnswer">
-        <p style="title qNum"></p>
-        <stack orientation="horizontal">
-          <image src="curriculumThemePack\question.png" style="icon"/>
-          <p>$TF_question$</p>
-        </stack>
-        <p style="title">ANSWER</p>
-        <p name="answer" style="collapsed">$TF_answer$</p>
-        <stack orientation="horizontal">
-          <image src="curriculumThemePack\answer.png" style="iconTF"/>
-          <button content="True" style="TF" name="trueButt">
-            <onClick>final.Text = "True"; yourAnswer.Style.Visibility = "visible";</onClick>
-          </button>
-          <button content="False" style="TF" name="falseButt">
-            <onClick>final.Text = "False"; yourAnswer.Style.Visibility = "visible";</onClick>
-          </button>
-          <image name="mark" src="curriculumThemePack\invisible.png" style="iconTF"/>
-        </stack>
-        <p name="yourAnswer" style="finalStyle collapsed"><i>You selected:</i></p>
-        <p name="final" style="finalStyle"/>
-        <sectionNoTitle name="solution" style="collapsed">
-          $TF_solution$
-        </sectionNoTitle>
-        <button content="Check Answer">
-          <onClick>
-            solution.Style.Visibility = "visible";
-            if final.Text == answer.Text then
-            mark.ImageSource = "curriculumThemePack/right.png";
-            else
-            mark.ImageSource = "curriculumThemePack/wrong.png";
-            end
-          </onClick>
+        <stack style="questionAnswer">
+      <p style="title qNum"></p>
+      <stack orientation="horizontal">
+        <image src="curriculumThemePack\question.png" style="icon"/>
+        <p>$TF_question$</p>
+      </stack>
+      <p style="title">ANSWER</p>
+      <p name="answer" style="collapsed">$TF_answer$</p>
+      <stack orientation="horizontal" name="stack">
+        <image src="curriculumThemePack\answer.png" style="iconTF"/>
+        <button content="True" style="TF" name="trueButt">
+          <onClick>final.Text = "True"; yourAnswer.Style.Visibility = "visible";</onClick>
         </button>
-      </div>
+        <button content="False" style="TF" name="falseButt">
+          <onClick>final.Text = "False"; yourAnswer.Style.Visibility = "visible";</onClick>
+        </button>
+        <image name="mark" src="curriculumThemePack\invisible.png" style="iconTF"/>
+      </stack>
+      <p name="yourAnswer" style="finalStyle collapsed">
+        <i>You selected:</i>
+      </p>
+      <p name="final" style="finalStyle"/>
+      <stack name="solution" style="collapsed">
+        <p> $TF_solution$ </p>
+      </stack>
+      <button content="Check Answer">
+        <onClick>
+          solution.Style.Visibility = "visible";
+          if final.Text == answer.Text then
+          stack.mark.ImageSource = "curriculumThemePack/right.png";
+          else
+          stack.mark.ImageSource = "curriculumThemePack/wrong.png";
+          end
+        </onClick>
+      </button>
+    </stack>
        <!-- This line can be removed after the curriculumStyles.xml fragment is included --> <p style="invisible">This document is formatted improperly because the curriculumStyles.xml fragment was not included at the beginning of your document.</p> ]]>
       </Code>
     </Snippet>
@@ -487,56 +493,56 @@
         <Literal>
           <ID>Fill_solution</ID>
           <ToolTip>Insert solution or hint inside the following section. We recommend not including the final answer in your solution.</ToolTip>
-          <Default>Enter full solution or hint to the question in this section.</Default>
+          <Default>Enter full solution or hint to the question inside this stack. You can include images, equations, etc.</Default>
         </Literal>
       </Declarations>
       <Code Language="XML">
         <![CDATA[
        <!-- THE FOLLOWING SNIPPET CAN ONLY BE USED IN CONJUNCTION WITH THE CURRICULUM THEME PACK -->
        <!-- See http://qdexapps.com/guides/curriculumthemepack for more information --> 
-       <div style="questionAnswer">
-        <p style="title qNum"></p>
-        <stack orientation="horizontal">
-          <image src="curriculumThemePack\question.png" style="icon"/>
-          <p>$Fill_question$ Replace "blank" words with $$ \underline{\hspace{1.5cm}} $$.</p>
-        </stack>
-        <p style="title">ANSWER</p>
-        <p name="answer1" style="collapsed">$Fill_answer1$</p>
-        <!-- If there is only one "blank" in the question, delete the next line: -->
-        <p name="answer2" style="collapsed">$Fill_answer2$</p>
-        <!-- For each additional "blank", insert the following code:
+      <stack style="questionAnswer">
+      <p style="title qNum"></p>
+      <stack orientation="horizontal">
+        <image src="curriculumThemePack\question.png" style="icon"/>
+        <p>$Fill_question$ Replace "blank" words with $$ \underline{\hspace{1.5cm}} $$.</p>
+      </stack>
+      <p style="title">ANSWER</p>
+      <p name="answer1" style="collapsed">$Fill_answer1$</p>
+      <!-- If there is only one "blank" in the question, delete the next line: -->
+      <p name="answer2" style="collapsed">$Fill_answer2$</p>
+      <!-- For each additional "blank", insert the following code:
         <p name="answer3" style="collapsed">Enter answer here.</p>
         Be sure to rename each subsequent paragraph, i.e. name="answer4", etc. -->
-        <stack orientation="horizontal" name="stack">
-          <image src="curriculumThemePack\answer.png" style="iconSol"/>
-          <stack>
-            <textField name="input1" placeholder="Insert First Blank Here"/>
-            <textField name="input2" placeholder="Insert Second Blank Here"/>
-            <!-- For each additional "blank", insert the following code:
+      <stack orientation="horizontal" name="stack">
+        <image src="curriculumThemePack\answer.png" style="iconSol"/>
+        <stack name="input">
+          <textField name="input1" placeholder="Insert First Blank Here"/>
+          <textField name="input2" placeholder="Insert Second Blank Here"/>
+          <!-- For each additional "blank", insert the following code:
             <textField name="input3" placeholder="Insert Third Blank Here"/>
             Be sure to rename each subsequent textField, i.e. name="input4", etc. -->
-          </stack>
-          <image name="mark" src="curriculumThemePack\invisible.png" style="iconSol"/>
         </stack>
-        <sectionNoTitle name="solution" style="collapsed">
-          $Fill_solution$
-        </sectionNoTitle>
-        <button content="Check Answer">
-          <onClick>
-            solution.Style.Visibility = "visible";
-            <!-- If there is only one "blank", the "if statement" needs to be reduced to: 
+        <image name="mark" src="curriculumThemePack\invisible.png" style="iconSol"/>
+      </stack>
+      <stack name="solution" style="collapsed">
+        <p> $Fill_solution$ </p>
+      </stack>
+      <button content="Check Answer">
+        <onClick>
+          solution.Style.Visibility = "visible";
+          <!-- If there is only one "blank", the "if statement" needs to be reduced to: 
                  if input1.Text == answer1.Text then -->
-            <!-- If there are extra "blanks", the "if statement" needs to be appended to include a check for the correct answer. Use 'and' in between each additional check. For example, 
+          <!-- If there are extra "blanks", the "if statement" needs to be appended to include a check for the correct answer. Use 'and' in between each additional check. For example, 
                  if input1.Text == answer1.Text and input2.Text == answer2.Text and input3.Text == answer3.Text and input4.Text == answer4.Text then -->
-            if input1.Text == answer1.Text and input2.Text == answer2.Text then
-            mark.ImageSource = "curriculumThemePack/right.png";
-            else
-            mark.ImageSource = "curriculumThemePack/wrong.png";
-            end
-          </onClick>
-        </button>
-      </div>
-       <!-- This line can be removed after the curriculumStyles.xml fragment is included --> <p style="invisible">This document is formatted improperly because the curriculumStyles.xml fragment was not included at the beginning of your document.</p> ]]>
+          if stack.input.input1.Text == answer1.Text and stack.input.input2.Text == answer2.Text then
+          stack.mark.ImageSource = "curriculumThemePack/right.png";
+          else
+          stack.mark.ImageSource = "curriculumThemePack/wrong.png";
+          end
+        </onClick>
+      </button>
+    </stack>
+    <!-- This line can be removed after the curriculumStyles.xml fragment is included --> <p style="invisible">This document is formatted improperly because the curriculumStyles.xml fragment was not included at the beginning of your document.</p> ]]>
       </Code>
     </Snippet>
   </CodeSnippet>  
@@ -559,17 +565,18 @@
       </Declarations>
       <Code Language="XML">
         <![CDATA[
-      <!-- THE FOLLOWING SNIPPET CAN ONLY BE USED IN CONJUNCTION WITH THE CURRICULUM THEME PACK -->
-       <!-- See http://qdexapps.com/guides/curriculumthemepack for more information -->  
-      <div style="summary">
-        <div style="border">
-          <p style="title">SUMMARY</p>
-          <p>
-            $summary_text$
-          </p>
-        </div>
-      </div>
-       <!-- This line can be removed after the curriculumStyles.xml fragment is included --> <p style="invisible">This document is formatted improperly because the curriculumStyles.xml fragment was not included at the beginning of your document.</p> ]]>
+    <!-- THE FOLLOWING SNIPPET CAN ONLY BE USED IN CONJUNCTION WITH THE CURRICULUM THEME PACK -->
+    <!-- See http://qdexapps.com/guides/curriculumthemepack for more information -->
+    <stack style="summary">
+      <stack style="border">
+        <p style="title">SUMMARY</p>
+        <p>
+          $summary_text$
+        </p>
+      </stack>
+    </stack>
+    <!-- This line can be removed after the curriculumStyles.xml fragment is included -->
+    <p style="invisible">This document is formatted improperly because the curriculumStyles.xml fragment was not included at the beginning of your document.</p> ]]>
       </Code>
     </Snippet>
   </CodeSnippet>
