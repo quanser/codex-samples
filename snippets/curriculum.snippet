@@ -580,5 +580,35 @@
       </Code>
     </Snippet>
   </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>qdex Curriculum Case Study</Title>
+      <Author>Abbey Desjarlais</Author>
+      <Description>Add a case study block to a curriculum-themed qdex document. Requires the curriculumStyles.xml fragment.</Description>
+      <HelpUrl>qdexapps.com/guides/curriculumthemepack</HelpUrl>
+      <Shortcut>qccasestudy</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>casestudy_text</ID>
+          <ToolTip>Replace with all of the information relevant to the case study. Can include paragraphs, images, tables, etc.</ToolTip>
+          <Default>Enter the case study information here.</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="XML">
+        <![CDATA[
+    <!-- THE FOLLOWING SNIPPET CAN ONLY BE USED IN CONJUNCTION WITH THE CURRICULUM THEME PACK -->
+    <!-- See http://qdexapps.com/guides/curriculumthemepack for more information -->
+    <stack style="summary">
+      <p style="title">CASE STUDY</p>
+      $casestudy_text$
+    </stack>
+    <!-- This line can be removed after the curriculumStyles.xml fragment is included -->
+    <p style="invisible">This document is formatted improperly because the curriculumStyles.xml fragment was not included at the beginning of your document.</p> ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
  
 </CodeSnippets>
