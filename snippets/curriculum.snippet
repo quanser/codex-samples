@@ -161,7 +161,7 @@
         <Literal>
           <ID>QAI_question</ID>
           <ToolTip>Replace with the question.</ToolTip>
-          <Default>Enter question here.</Default>
+          <Default>Enter question here. Include information on number of significant digits. For example: </Default>
         </Literal>
         <Literal>
           <ID>QAI_answer</ID>
@@ -180,7 +180,7 @@
       <p style="title qNum"></p>
       <stack orientation="horizontal">
         <image src="curriculumThemePack\question.png" style="icon"/>
-        <p>$QAI_question$</p>
+        <p>$QAI_question$ <i>Answer should be to two significant figures.</i></p>
       </stack>
       <p style="title">ANSWER</p>
       <p name="answer" style="collapsed">$QAI_answer$</p>
@@ -295,8 +295,8 @@
         </Literal>
         <Literal>
           <ID>MC_answer</ID>
-          <ToolTip>Replace with the letter that corresponds to the right answer. E.g. "A".</ToolTip>
-          <Default>Enter the capitalized letter that corresponds to the answer here.</Default>
+          <ToolTip>Replace with the letter that corresponds to the correct answer. E.g. "A".</ToolTip>
+          <Default>Enter the letter that corresponds to the correct answer here.</Default>
         </Literal>
         <Literal>
           <ID>MC_answerA</ID>
@@ -370,7 +370,7 @@
       <button content="Check Answer">
         <onClick>
           solution.Style.Visibility = "visible";
-          if final.Text == answer.Text then
+          if string.lower(final.Text) == string.lower(answer.Text) then
           stack.mark.ImageSource = "curriculumThemePack/right.png";
           else
           stack.mark.ImageSource = "curriculumThemePack/wrong.png";
@@ -401,7 +401,7 @@
         <Literal>
           <ID>TF_answer</ID>
           <ToolTip>Replace with True or False. Be careful not to include accidental spaces or characters.</ToolTip>
-          <Default>Enter True or False here. Do not include extra characters. First letter must be capitalized.</Default>
+          <Default>Enter True or False here. Do not include extra characters.</Default>
         </Literal>      
         <Literal>
           <ID>TF_solution</ID>
@@ -439,7 +439,7 @@
       <button content="Check Answer">
         <onClick>
           solution.Style.Visibility = "visible";
-          if final.Text == answer.Text then
+          if string.lower(final.Text) == string.lower(answer.Text) then
           stack.mark.ImageSource = "curriculumThemePack/right.png";
           else
           stack.mark.ImageSource = "curriculumThemePack/wrong.png";
@@ -516,9 +516,9 @@
         <onClick>
           solution.Style.Visibility = "visible";
           <!-- If there is only one "blank", the "if statement" needs to be reduced to: 
-                 if input1.Text == answer1.Text then -->
-          <!-- If there are extra "blanks", the "if statement" needs to be appended to include a check for the correct answer. Use 'and' in between each additional check. For example, 
-                 if input1.Text == answer1.Text and input2.Text == answer2.Text and input3.Text == answer3.Text and input4.Text == answer4.Text then -->
+                 if stack.input1.Text == answer1.Text then -->
+          <!-- If there are extra "blanks", the "if statement" needs to be appended to include a check for each additional correct answer. Use 'and' in between each additional check. For example, 
+                 if stack.input1.Text == answer1.Text and stack.input2.Text == answer2.Text and stack.input3.Text == answer3.Text and stack.input4.Text == answer4.Text then -->
           if stack.input.input1.Text == answer1.Text and stack.input.input2.Text == answer2.Text then
           stack.mark.ImageSource = "curriculumThemePack/right.png";
           else
@@ -543,6 +543,11 @@
     <Snippet>
       <Declarations>
         <Literal>
+          <ID>summary_title</ID>
+          <ToolTip>Replace with the chapter of the summary (e.g. SUMMARY OF CHAPTER 3, SECTION 2 SUMMARY). Capitalize all title words.</ToolTip>
+          <Default>(OPTIONAL) ENTER THE CHAPTER TITLE OF THE SUMMARY HERE.</Default>
+        </Literal>
+        <Literal>
           <ID>summary_text</ID>
           <ToolTip>Replace with a summary of your section or chapter.</ToolTip>
           <Default>Enter a summary for your section or subsection.</Default>
@@ -552,7 +557,7 @@
         <![CDATA[
     <stack style="summary">
       <stack style="border">
-        <p style="title">SUMMARY</p>
+        <p style="title">SUMMARY $summary_title$</p>
         <p>
           $summary_text$
         </p>
@@ -574,6 +579,11 @@
     </Header>
     <Snippet>
       <Declarations>
+         <Literal>
+          <ID>casestudy_title</ID>
+          <ToolTip>Replace with the title of the case study (e.g. CASE STUDY: TITLE). Capitalize all title words.</ToolTip>
+          <Default>(OPTIONAL) ENTER THE TITLE OF THE CASE STUDY HERE.</Default>
+        </Literal>
         <Literal>
           <ID>casestudy_text</ID>
           <ToolTip>Replace with all of the information relevant to the case study. Can include paragraphs, images, tables, etc.</ToolTip>
@@ -583,7 +593,7 @@
       <Code Language="XML">
         <![CDATA[
     <stack style="caseStudy">
-      <p style="title">CASE STUDY</p>
+      <p style="title">CASE STUDY $casestudy_title$</p>
       $casestudy_text$
     </stack>
     <!-- This line can be removed after the curriculumStyles.xml fragment is included -->
