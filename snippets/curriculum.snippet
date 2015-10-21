@@ -126,12 +126,12 @@
       <stack style="questionAnswer">
       <p style="title qNum"></p>
       <stack orientation="horizontal">
-        <image src="curriculumThemePack\question.png" style="icon"/>
+        <image src="curriculumThemePack\question.png" style="icon" inspect="false" />
         <p>$QA_question$</p>
       </stack>
       <p style="title">ANSWER</p>
       <stack orientation="horizontal" name="myStack">
-        <image src="curriculumThemePack\answer.png" style="icon"/>
+        <image src="curriculumThemePack\answer.png" style="icon" inspect="false" />
         <stack name="answer" style="collapsed">
           <p> $QA_answer$ </p>
         </stack>
@@ -179,15 +179,15 @@
       <stack style="questionAnswer">
       <p style="title qNum"></p>
       <stack orientation="horizontal">
-        <image src="curriculumThemePack\question.png" style="icon"/>
+        <image src="curriculumThemePack\question.png" style="icon" inspect="false" />
         <p>$QAI_question$ <i>Answer should be to two significant figures.</i></p>
       </stack>
       <p style="title">ANSWER</p>
       <p name="answer" style="collapsed">$QAI_answer$</p>
       <stack orientation="horizontal" name="stack">
-        <image src="curriculumThemePack\answer.png" style="iconSol"/>
+        <image src="curriculumThemePack\answer.png" style="iconSol" inspect="false" />
         <textField name="input" placeholder="Insert Answer Here"/>
-        <image name="mark" src="curriculumThemePack\invisible.png" style="iconSol"/>
+        <image name="mark" src="curriculumThemePack\invisible.png" style="iconSol" inspect="false" />
       </stack>
       <stack name="solution" style="collapsed">
         <p> $QAI_solution$ </p>
@@ -244,7 +244,7 @@
       <stack style="questionAnswer">
       <p style="title qNum"></p>
       <stack orientation="horizontal">
-        <image src="curriculumThemePack\question.png" style="icon"/>
+        <image src="curriculumThemePack\question.png" style="icon" inspect="false" />
         <p>
           $QASCI_question$ <i>Answer should be in scientific notation to two significant figures, i.e. $$ a.aa \times 10^{\pm b} $$ </i>
         </p>
@@ -253,11 +253,11 @@
       <p name="answerSig" style="collapsed">$QASCI_answerA$</p>
       <p name="answerExp" style="collapsed">$QASCI_answerB$</p>
       <stack orientation="horizontal" name="stack">
-        <image src="curriculumThemePack\answer.png" style="iconSci"/>
-        <textField name="inputSig" placeholder="a.aa" style="sciText"/>
+        <image src="curriculumThemePack\answer.png" style="iconSci" inspect="false" />
+        <textField name="inputSig" placeholder="a.aa" style="sciText" />
         <p style="sciNot">$$\times$$ 10^ </p>
         <textField name="inputExp" placeholder="b" style="exponentStyle"/>
-        <image name="mark" src="curriculumThemePack\invisible.png" style="iconSci"/>
+        <image name="mark" src="curriculumThemePack\invisible.png" style="iconSci" inspect="false" />
       </stack>
       <stack name="solution" style="collapsed">
         <p> $QASCI_solution$ </p>
@@ -321,49 +321,82 @@
       </Declarations>
       <Code Language="XML">
         <![CDATA[
-     <stack style="questionAnswer">
-      <p style="title qNum"></p>
-      <stack orientation="horizontal">
-        <image src="curriculumThemePack\question.png" style="icon"/>
-        <p>$MC_question$</p>
-      </stack>
+      <stack style="questionAnswer">
+      <p style="title qNum">
+      </p>
+      <table widths="10% 90%" grid="false">
+        <row>
+          <column>
+            <image src="curriculumThemePack\question.png" inspect="false" />
+          </column>
+          <column>
+            <p>$MC_question$</p>
+          </column>
+        </row>
+      </table>
       <p style="title">ANSWER</p>
       <p name="answer" style="collapsed">$MC_answer$</p>
       <stack orientation="horizontal" name="stack">
-        <image src="curriculumThemePack\answer.png" style="iconMulti"/>
-        <stack style="multiStackStyle">
-          <stack orientation="horizontal">
-            <button content="A">
-              <onClick>final.Text="A"; yourAnswer.Style.Visibility = "visible";</onClick>
-            </button>
-            <p style="multiChoiceStyle">$MC_answerA$</p>
-          </stack>
-          <stack orientation="horizontal">
-            <button content="B">
-              <onClick>final.Text="B"; yourAnswer.Style.Visibility = "visible";</onClick>
-            </button>
-            <p style="multiChoiceStyle">$MC_answerB$</p>
-          </stack>
-          <stack orientation="horizontal">
-            <button content="C">
-              <onClick>final.Text="C"; yourAnswer.Style.Visibility = "visible";</onClick>
-            </button>
-            <p style="multiChoiceStyle">$MC_answerC$</p>
-          </stack>
-          <!-- Insert the following code for each subsequent choice (Choice D, E, F, etc).  Delete if unnecessary.
-            <stack orientation="horizontal">
-              <button content="Replace with Next Letter">
-                <onClick>final.Text="Replace with Next Letter";</onClick>
+        <table name="table" widths="10% 20% 60% 10%" grid="false">
+          <row name="row">
+            <column>
+              <image src="curriculumThemePack\answer.png" inspect="false" />
+            </column>
+            <column>
+              <button content="A">
+                <onClick>final.Text="A"; yourAnswer.Style.Visibility = "visible";</onClick>
               </button>
-              <p style="multiChoiceStyle">Choice</p>
-            </stack> -->
-        </stack>
-        <image name="mark" src="curriculumThemePack\invisible.png" style="iconMulti"/>
+            </column>
+            <column>
+              <p style="multiChoiceStyle">$MC_answerA$</p>
+            </column>
+            <column name="column">
+              <image name="mark" src="curriculumThemePack/invisible.png" inspect="false" />
+            </column>
+          </row>
+          <row>
+            <column />
+            <column>
+              <button content="B">
+                <onClick>final.Text="B"; yourAnswer.Style.Visibility = "visible";</onClick>
+              </button>
+            </column>
+            <column>
+              <p style="multiChoiceStyle">$MC_answerB$</p>
+            </column>
+            <column />
+          </row>
+          <row>
+            <column />
+            <column>
+              <button content="C">
+                <onClick>final.Text="C"; yourAnswer.Style.Visibility = "visible";</onClick>
+              </button>
+            </column>
+            <column>
+              <p style="multiChoiceStyle">$MC_answerC$</p>
+            </column>
+            <column />
+          </row>
+          <!-- Insert the following code for each subsequent choice (Choice D, E, F, etc).  Delete if unnecessary.
+          <row>
+            <column />
+            <column>
+              <button content="Replace with Next Letter">
+                <onClick>final.Text="Replace with Next Letter"; yourAnswer.Style.Visibility = "visible";</onClick>
+              </button>
+            </column>
+            <column>
+              <p style="multiChoiceStyle">Enter Choice Here</p>
+            </column>
+            <column />
+          </row> -->
+        </table>
       </stack>
       <p name="yourAnswer" style="finalStyle collapsed">
         <i>You selected:</i>
       </p>
-      <p name="final" style="finalStyle"/>
+      <p name="final" style="finalStyle" />
       <stack name="solution" style="collapsed">
         <p> $MC_solution$ </p>
       </stack>
@@ -371,14 +404,14 @@
         <onClick>
           solution.Style.Visibility = "visible";
           if string.lower(final.Text) == string.lower(answer.Text) then
-          stack.mark.ImageSource = "curriculumThemePack/right.png";
+          stack.table.row.column.mark.ImageSource = "curriculumThemePack/right.png";
           else
-          stack.mark.ImageSource = "curriculumThemePack/wrong.png";
+          stack.table.row.column.mark.ImageSource = "curriculumThemePack/wrong.png";
           end
         </onClick>
       </button>
     </stack>
-       <!-- This line can be removed after the curriculumStyles.xml fragment is included --> <p style="invisible">This document is formatted improperly because the curriculumStyles.xml fragment was not included at the beginning of your document.</p> ]]>
+    <!-- This line can be removed after the curriculumStyles.xml fragment is included --> <p style="invisible">This document is formatted improperly because the curriculumStyles.xml fragment was not included at the beginning of your document.</p> ]]>
       </Code>
     </Snippet>
   </CodeSnippet>
@@ -414,20 +447,20 @@
         <stack style="questionAnswer">
       <p style="title qNum"></p>
       <stack orientation="horizontal">
-        <image src="curriculumThemePack\question.png" style="icon"/>
+        <image src="curriculumThemePack\question.png" style="icon" inspect="false" />
         <p>$TF_question$</p>
       </stack>
       <p style="title">ANSWER</p>
       <p name="answer" style="collapsed">$TF_answer$</p>
       <stack orientation="horizontal" name="stack">
-        <image src="curriculumThemePack\answer.png" style="iconTF"/>
+        <image src="curriculumThemePack\answer.png" style="iconTF" inspect="false" />
         <button content="True" style="TF" name="trueButt">
           <onClick>final.Text = "True"; yourAnswer.Style.Visibility = "visible";</onClick>
         </button>
         <button content="False" style="TF" name="falseButt">
           <onClick>final.Text = "False"; yourAnswer.Style.Visibility = "visible";</onClick>
         </button>
-        <image name="mark" src="curriculumThemePack\invisible.png" style="iconTF"/>
+        <image name="mark" src="curriculumThemePack\invisible.png" style="iconTF" inspect="false" />
       </stack>
       <p name="yourAnswer" style="finalStyle collapsed">
         <i>You selected:</i>
@@ -488,7 +521,7 @@
       <stack style="questionAnswer">
       <p style="title qNum"></p>
       <stack orientation="horizontal">
-        <image src="curriculumThemePack\question.png" style="icon"/>
+        <image src="curriculumThemePack\question.png" style="icon" inspect="false" />
         <p>$Fill_question$ Replace "blank" words with $$ \underline{\hspace{1.5cm}} $$.</p>
       </stack>
       <p style="title">ANSWER</p>
@@ -499,7 +532,7 @@
         <p name="answer3" style="collapsed">Enter answer here.</p>
         Be sure to rename each subsequent paragraph, i.e. name="answer4", etc. -->
       <stack orientation="horizontal" name="stack">
-        <image src="curriculumThemePack\answer.png" style="iconSol"/>
+        <image src="curriculumThemePack\answer.png" style="iconSol" inspect="false" />
         <stack name="input">
           <textField name="input1" placeholder="Insert First Blank Here"/>
           <textField name="input2" placeholder="Insert Second Blank Here"/>
@@ -507,7 +540,7 @@
             <textField name="input3" placeholder="Insert Third Blank Here"/>
             Be sure to rename each subsequent textField, i.e. name="input4", etc. -->
         </stack>
-        <image name="mark" src="curriculumThemePack\invisible.png" style="iconSol"/>
+        <image name="mark" src="curriculumThemePack\invisible.png" style="iconSol" inspect="false" />
       </stack>
       <stack name="solution" style="collapsed">
         <p> $Fill_solution$ </p>
