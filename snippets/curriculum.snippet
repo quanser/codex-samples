@@ -7,7 +7,7 @@
       <Title>qdex Curriculum Title Page</Title>
       <Author>Abbey Desjarlais</Author>
       <Description>Add a curriculum-themed title page to a qdex document. Requires the curriculumStyles.xml fragment.</Description>
-      <HelpUrl>qdexapps.com/guides/curriculumthemepack</HelpUrl>
+      <HelpUrl>qdexapps.com/curriculum</HelpUrl>
       <Shortcut>qctitlepage</Shortcut>
     </Header>
     <Snippet>
@@ -60,7 +60,7 @@
       <Title>qdex Curriculum Code Example</Title>
       <Author>Abbey Desjarlais</Author>
       <Description>Add a code example to a curriculum-themed qdex document. Requires the curriculumStyles.xml fragment.</Description>
-      <HelpUrl>qdexapps.com/guides/curriculumthemepack</HelpUrl>
+      <HelpUrl>qdexapps.com/curriculum</HelpUrl>
       <Shortcut>qccode</Shortcut>
     </Header>
     <Snippet>
@@ -105,7 +105,7 @@
       <Title>qdex Curriculum Question and Answer</Title>
       <Author>Abbey Desjarlais</Author>
       <Description>Add a question with hidden answer/solution to a curriculum-themed qdex document. Requires the curriculumStyles.xml fragment.</Description>
-      <HelpUrl>qdexapps.com/guides/curriculumthemepack</HelpUrl>
+      <HelpUrl>qdexapps.com/curriculum</HelpUrl>
       <Shortcut>qcQA</Shortcut>
     </Header>
     <Snippet>
@@ -153,7 +153,7 @@
       <Title>qdex Curriculum Question and Answer, with User Input</Title>
       <Author>Abbey Desjarlais</Author>
       <Description>Add a question with user-input and a hidden solution to a curriculum-themed qdex document. Requires the curriculumStyles.xml fragment.</Description>
-      <HelpUrl>qdexapps.com/guides/curriculumthemepack</HelpUrl>
+      <HelpUrl>qdexapps.com/curriculum</HelpUrl>
       <Shortcut>qcQA</Shortcut>
     </Header>
     <Snippet>
@@ -176,33 +176,37 @@
       </Declarations>
       <Code Language="XML">
         <![CDATA[ 
-      <stack style="questionAnswer">
-      <p style="title qNum"></p>
-      <stack orientation="horizontal">
-        <image src="curriculumThemePack\question.png" style="icon" inspect="false" />
-        <p>$QAI_question$ <i>Answer should be to two significant figures.</i></p>
-      </stack>
-      <p style="title">ANSWER</p>
-      <p name="answer" style="collapsed">$QAI_answer$</p>
-      <stack orientation="horizontal" name="stack">
-        <image src="curriculumThemePack\answer.png" style="iconSol" inspect="false" />
-        <textField name="input" placeholder="Insert Answer Here"/>
-        <image name="mark" src="curriculumThemePack\invisible.png" style="iconSol" inspect="false" />
-      </stack>
-      <stack name="solution" style="collapsed">
-        <p> $QAI_solution$ </p>
-      </stack>
-      <button content="Check Answer">
-        <onClick>
-          solution.Style.Visibility = "visible";
-          if stack.input.Text == answer.Text then
-          stack.mark.ImageSource = "curriculumThemePack/right.png";
-          else
-          stack.mark.ImageSource = "curriculumThemePack/wrong.png";
-          end
-        </onClick>
-      </button>
-    </stack>
+       <stack style="questionAnswer">
+         <p style="title qNum"></p>
+         <table grid="false" widths="10% 90%">
+           <row>
+             <column><image src="curriculumThemePack\question.png" inspect="false" /></     column>
+             <column><p> $QAI_question$ <i>Answer should be to two significant figures.<i>       </p></column>
+           </row>
+         </table>
+         <p style="title">ANSWER</p>
+         <p name="answer" style="collapsed">$QAI_answer$</p>
+         <table name="table" grid="false" widths="10% 80% 10%">
+           <row name="row">
+             <column><image src="curriculumThemePack\answer.png" inspect="false" / ><column>
+             <column name="inCol"><textField name="input" placeholder="Insert  AnswerHere" /     ></column>
+             <column name="markCol"><image name="mark" src="curriculumThemePack     \invisible.png" inspect="false" /></column>
+           </row>
+         </table>
+         <stack name="solution" style="collapsed">
+           <p> $QAI_solution$ </p>
+         </stack>
+         <button content="Check Answer">
+           <onClick>
+             solution.Style.Visibility = "visible";
+             if table.row.inCol.input.Text == answer.Text then
+             table.row.markCol.mark.ImageSource = "curriculumThemePack/right.png";
+             else
+             table.row.markCol.mark.ImageSource = "curriculumThemePack/wrong.png";
+             end
+           </onClick>
+         </button>
+       </stack>
        <!-- This line can be removed after the curriculumStyles.xml fragment is included --> <p style="invisible">This document is formatted improperly because the curriculumStyles.xml fragment was not included at the beginning of your document.</p> ]]>
       </Code>
     </Snippet>
@@ -213,7 +217,7 @@
       <Title>qdex Curriculum Question and Answer, with User Input in Scientific Notation</Title>
       <Author>Abbey Desjarlais</Author>
       <Description>Add a question with user-input in scientific notation, and a hidden solution to a curriculum-themed qdex document. Requires the curriculumStyles.xml fragment.</Description>
-      <HelpUrl>qdexapps.com/guides/curriculumthemepack</HelpUrl>
+      <HelpUrl>qdexapps.com/curriculum</HelpUrl>
       <Shortcut>qcQA</Shortcut>
     </Header>
     <Snippet>
@@ -241,33 +245,39 @@
       </Declarations>
       <Code Language="XML">
         <![CDATA[
-      <stack style="questionAnswer">
+    <stack style="questionAnswer">
       <p style="title qNum"></p>
-      <stack orientation="horizontal">
-        <image src="curriculumThemePack\question.png" style="icon" inspect="false" />
-        <p>
-          $QASCI_question$ <i>Answer should be in scientific notation to two significant figures, i.e. $$ a.aa \times 10^{\pm b} $$ </i>
-        </p>
-      </stack>
+      <table grid="false" widths="10% 90%">
+        <row>
+          <column><image src="curriculumThemePack\question.png" inspect="false" /></column>
+          <column>
+            <p>
+              $QASCI_question$ <i>Answer should be in scientific notation to two significant figures, i.e. $ a.aa \times 10^{\pm b} $ </i>
+            </p>
+          </column>
+        </row>
+      </table>
       <p style="title">ANSWER</p>
       <p name="answerSig" style="collapsed">$QASCI_answerA$</p>
       <p name="answerExp" style="collapsed">$QASCI_answerB$</p>
-      <stack orientation="horizontal" name="stack">
-        <image src="curriculumThemePack\answer.png" style="iconSci" inspect="false" />
-        <textField name="inputSig" placeholder="a.aa" style="sciText" />
-        <p style="sciNot">$$\times$$ 10^ </p>
-        <textField name="inputExp" placeholder="b" style="exponentStyle"/>
-        <image name="mark" src="curriculumThemePack\invisible.png" style="iconSci" inspect="false" />
-      </stack>
+      <table name="table" grid="false" widths="10% 20% 20% 40% 10%">
+        <row name="row">
+          <column><image src="curriculumThemePack\answer.png" inspect="false" /></column>
+          <column name="sigCol"><textField name="inputSig" placeholder="a.aa" /></column>
+          <column><p style="sciNot">$\times$ 10^ </p></column>
+          <column name="expCol"><textField name="inputExp" placeholder="b" /></column>
+          <column name="imgCol"><image name="mark" src="curriculumThemePack\invisible.png" inspect="false" /></column>
+        </row>
+      </table>
       <stack name="solution" style="collapsed">
-        <p> $QASCI_solution$ </p>
+        <p> $QASCI_solution$  </p>
       </stack>
       <button content="Check Answer">
         <onClick>
-          if stack.inputSig.Text == answerSig.Text and stack.inputExp.Text == answerExp.Text then
-          stack.mark.ImageSource = "curriculumThemePack/right.png";
+          if table.row.sigCol.inputSig.Text == answerSig.Text and table.row.expCol.inputExp.Text == answerExp.Text then
+          table.row.imgCol.mark.ImageSource = "curriculumThemePack/right.png";
           else
-          stack.mark.ImageSource = "curriculumThemePack/wrong.png";
+          table.row.imgCol.mark.ImageSource = "curriculumThemePack/wrong.png";
           solution.Style.Visibility = "visible";
           end
         </onClick>
@@ -283,7 +293,7 @@
       <Title>qdex Curriculum Multiple Choice Question</Title>
       <Author>Abbey Desjarlais</Author>
       <Description>Add a multiple choice question with a hidden solution to a curriculum-themed qdex document. Requires the curriculumStyles.xml fragment.</Description>
-      <HelpUrl>qdexapps.com/guides/curriculumthemepack</HelpUrl>
+      <HelpUrl>qdexapps.com/curriculum</HelpUrl>
       <Shortcut>qcQA</Shortcut>
     </Header>
     <Snippet>
@@ -348,7 +358,7 @@
               </button>
             </column>
             <column>
-              <p style="multiChoiceStyle">$MC_answerA$</p>
+              <p>$MC_answerA$</p>
             </column>
             <column name="column">
               <image name="mark" src="curriculumThemePack/invisible.png" inspect="false" />
@@ -362,9 +372,11 @@
               </button>
             </column>
             <column>
-              <p style="multiChoiceStyle">$MC_answerB$</p>
+              <p>$MC_answerB$</p>
             </column>
-            <column />
+            <column>
+              <image src="curriculumThemePack/invisible.png" inspect="false" />
+            </column>
           </row>
           <row>
             <column />
@@ -374,9 +386,11 @@
               </button>
             </column>
             <column>
-              <p style="multiChoiceStyle">$MC_answerC$</p>
+              <p>$MC_answerC$</p>
             </column>
-            <column />
+            <column>
+               <image src="curriculumThemePack/invisible.png" inspect="false" />
+             </column>
           </row>
           <!-- Insert the following code for each subsequent choice (Choice D, E, F, etc).  Delete if unnecessary.
           <row>
@@ -387,9 +401,11 @@
               </button>
             </column>
             <column>
-              <p style="multiChoiceStyle">Enter Choice Here</p>
+              <p>Enter Choice Here</p>
             </column>
-            <column />
+            <column>
+              <image src="curriculumThemePack/invisible.png" inspect="false" />
+            </column>
           </row> -->
         </table>
       </stack>
@@ -421,7 +437,7 @@
       <Title>qdex Curriculum True or False Question</Title>
       <Author>Abbey Desjarlais</Author>
       <Description>Add a true or false question and a hidden solution to a curriculum-themed qdex document. Requires the curriculumStyles.xml fragment.</Description>
-      <HelpUrl>qdexapps.com/guides/curriculumthemepack</HelpUrl>
+      <HelpUrl>qdexapps.com/curriculum</HelpUrl>
       <Shortcut>qcQA</Shortcut>
     </Header>
     <Snippet>
@@ -446,26 +462,34 @@
         <![CDATA[
         <stack style="questionAnswer">
       <p style="title qNum"></p>
-      <stack orientation="horizontal">
-        <image src="curriculumThemePack\question.png" style="icon" inspect="false" />
-        <p>$TF_question$</p>
-      </stack>
+      <table grid="false" widths="10% 90%">
+        <row>
+          <column><image src="curriculumThemePack\question.png" inspect="false" /></column>
+          <column><p>$TF_question$</p></column>
+        </row>
+      </table>
       <p style="title">ANSWER</p>
       <p name="answer" style="collapsed">$TF_answer$</p>
-      <stack orientation="horizontal" name="stack">
-        <image src="curriculumThemePack\answer.png" style="iconTF" inspect="false" />
-        <button content="True" style="TF" name="trueButt">
-          <onClick>final.Text = "True"; yourAnswer.Style.Visibility = "visible";</onClick>
-        </button>
-        <button content="False" style="TF" name="falseButt">
-          <onClick>final.Text = "False"; yourAnswer.Style.Visibility = "visible";</onClick>
-        </button>
-        <image name="mark" src="curriculumThemePack\invisible.png" style="iconTF" inspect="false" />
-      </stack>
+      <table name="table" grid="false" widths="10% 40% 40% 10%">
+        <row name="row">
+          <column><image src="curriculumThemePack\answer.png" inspect="false" /></column>
+          <column>
+            <button content="True" style="TF" name="trueButt">
+              <onClick>final.Text = "True"; yourAnswer.Style.Visibility = "visible";</onClick>
+            </button>
+          </column>
+          <column>
+            <button content="False" style="TF" name="falseButt">
+              <onClick>final.Text = "False"; yourAnswer.Style.Visibility = "visible";</onClick>
+            </button>
+          </column>
+          <column name="column"><image name="mark" src="curriculumThemePack\invisible.png" inspect="false" /></column>
+        </row>
+      </table>
       <p name="yourAnswer" style="finalStyle collapsed">
         <i>You selected:</i>
       </p>
-      <p name="final" style="finalStyle"/>
+      <p name="final" style="finalStyle" />
       <stack name="solution" style="collapsed">
         <p> $TF_solution$ </p>
       </stack>
@@ -473,9 +497,9 @@
         <onClick>
           solution.Style.Visibility = "visible";
           if string.lower(final.Text) == string.lower(answer.Text) then
-          stack.mark.ImageSource = "curriculumThemePack/right.png";
+          table.row.column.mark.ImageSource = "curriculumThemePack/right.png";
           else
-          stack.mark.ImageSource = "curriculumThemePack/wrong.png";
+          table.row.column.mark.ImageSource = "curriculumThemePack/wrong.png";
           end
         </onClick>
       </button>
@@ -490,7 +514,7 @@
       <Title>qdex Curriculum Fill in the Blank Question</Title>
       <Author>Abbey Desjarlais</Author>
       <Description>Add a fill-in-the-blank style question with a hidden solution to a curriculum-themed qdex document. Requires the curriculumStyles.xml fragment.</Description>
-      <HelpUrl>qdexapps.com/guides/curriculumthemepack</HelpUrl>
+      <HelpUrl>qdexapps.com/curriculum</HelpUrl>
       <Shortcut>qcQA</Shortcut>
     </Header>
     <Snippet>
@@ -570,7 +594,7 @@
       <Title>qdex Curriculum Summary</Title>
       <Author>Abbey Desjarlais</Author>
       <Description>Add a summary block to a curriculum-themed qdex document. Requires the curriculumStyles.xml fragment.</Description>
-      <HelpUrl>qdexapps.com/guides/curriculumthemepack</HelpUrl>
+      <HelpUrl>qdexapps.com/curriculum</HelpUrl>
       <Shortcut>qcsummary</Shortcut>
     </Header>
     <Snippet>
@@ -607,7 +631,7 @@
       <Title>qdex Curriculum Case Study</Title>
       <Author>Abbey Desjarlais</Author>
       <Description>Add a case study block to a curriculum-themed qdex document. Requires the curriculumStyles.xml fragment.</Description>
-      <HelpUrl>qdexapps.com/guides/curriculumthemepack</HelpUrl>
+      <HelpUrl>qdexapps.com/curriculum</HelpUrl>
       <Shortcut>qccasestudy</Shortcut>
     </Header>
     <Snippet>
