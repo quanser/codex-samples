@@ -125,20 +125,30 @@
         <![CDATA[
       <stack style="questionAnswer">
       <p style="title qNum"></p>
-      <stack orientation="horizontal">
-        <image src="curriculumThemePack\question.png" style="icon" inspect="false" />
-        <p>$QA_question$</p>
-      </stack>
+      <table widths="10% 90%" grid="false">
+        <row>
+          <column>
+            <image src="curriculumThemePack\question.png" inspect="false" />
+          </column>
+          <column>
+            <p> $QA_question$ </p>
+          </column>
+        </row>
+      </table>
       <p style="title">ANSWER</p>
-      <stack orientation="horizontal" name="myStack">
-        <image src="curriculumThemePack\answer.png" style="icon" inspect="false" />
-        <stack name="answer" style="collapsed">
-          <p> $QA_answer$ </p>
-        </stack>
-      </stack>
+      <table name="table" widths="10% 90%" grid="false">
+        <row>
+          <column>
+            <image src="curriculumThemePack\answer.png" inspect="false" />
+          </column>
+          <column>
+            <p style="collapsed"> $QA_answer$ </p>
+          </column>
+        </row>
+      </table>  
       <button content="Show Answer">
         <onClick>
-          myStack.answer.Style.Visibility = "visible";
+           table:Child(1):Child(2):Child(1).Style.Visibility = "visible";
         </onClick>
       </button>
     </stack>
@@ -180,17 +190,17 @@
          <p style="title qNum"></p>
          <table grid="false" widths="10% 90%">
            <row>
-             <column><image src="curriculumThemePack\question.png" inspect="false" /></     column>
-             <column><p> $QAI_question$ <i>Answer should be to two significant figures.<i>       </p></column>
+             <column><image src="curriculumThemePack\question.png" inspect="false" /></column>
+             <column><p> $QAI_question$ <i>Answer should be to two significant figures.</i></p></column>
            </row>
          </table>
          <p style="title">ANSWER</p>
          <p name="answer" style="collapsed">$QAI_answer$</p>
          <table name="table" grid="false" widths="10% 80% 10%">
            <row name="row">
-             <column><image src="curriculumThemePack\answer.png" inspect="false" / ><column>
-             <column name="inCol"><textField name="input" placeholder="Insert  AnswerHere" /     ></column>
-             <column name="markCol"><image name="mark" src="curriculumThemePack     \invisible.png" inspect="false" /></column>
+             <column><image src="curriculumThemePack\answer.png" inspect="false" /></column>
+             <column name="inCol"><textField name="input" placeholder="Insert  AnswerHere" /></column>
+             <column name="markCol"><image name="mark" src="curriculumThemePack\invisible.png" inspect="false" /></column>
            </row>
          </table>
          <stack name="solution" style="collapsed">
@@ -252,7 +262,7 @@
           <column><image src="curriculumThemePack\question.png" inspect="false" /></column>
           <column>
             <p>
-              $QASCI_question$ <i>Answer should be in scientific notation to two significant figures, i.e. $ a.aa \times 10^{\pm b} $ </i>
+              $QASCI_question$ <i>Answer should be in scientific notation to two significant figures, i.e. $$ a.aa \times 10^{\pm b} $$ </i>
             </p>
           </column>
         </row>
@@ -325,8 +335,13 @@
         </Literal>
         <Literal>
           <ID>MC_solution</ID>
-          <ToolTip>Insert solution or hint inside the following section. We recommend not including the final answer in your solution.</ToolTip>
-          <Default>Enter full solution or hint to the question inside this stack. You can include images, equations, etc.</Default>
+          <ToolTip>Insert solution inside the following section. We recommend not including the final answer in your solution.</ToolTip>
+          <Default>Enter full solution to the question inside this stack. You can include images, equations, etc.</Default>
+        </Literal>
+        <Literal>
+          <ID>MC_hint</ID>
+          <ToolTip>Insert hint inside the following section. We recommend not including the final answer in your solution.</ToolTip>
+          <Default>Enter hint to the question inside this stack. You can include images, equations, etc.</Default>
         </Literal>
       </Declarations>
       <Code Language="XML">
@@ -346,15 +361,32 @@
       </table>
       <p style="title">ANSWER</p>
       <p name="answer" style="collapsed">$MC_answer$</p>
+      <script>
+        local selection = -1;
+        local deselectedColor = color.silver;
+        local selectedColor = color.rgb(50, 133, 184);
+
+        local function chooseButton(i)
+        if selection &gt; 0 then
+        stack.table:Child(selection):Child(2):Child(1).Style.BackgroundColor = deselectedColor;
+        end
+        stack.table:Child(i):Child(2):Child(1).Style.BackgroundColor = selectedColor;
+        selection = i;
+        end
+      </script>
       <stack orientation="horizontal" name="stack">
         <table name="table" widths="10% 20% 60% 10%" grid="false">
+          <style name="buttons">
+            <foreground color="white" />
+            <background color="silver" />
+          </style>
           <row name="row">
             <column>
               <image src="curriculumThemePack\answer.png" inspect="false" />
             </column>
             <column>
               <button content="A">
-                <onClick>final.Text="A"; yourAnswer.Style.Visibility = "visible";</onClick>
+                <onClick>final.Text="A"; chooseButton(1);</onClick>
               </button>
             </column>
             <column>
@@ -368,7 +400,7 @@
             <column />
             <column>
               <button content="B">
-                <onClick>final.Text="B"; yourAnswer.Style.Visibility = "visible";</onClick>
+                <onClick>final.Text="B"; chooseButton(2);</onClick>
               </button>
             </column>
             <column>
@@ -382,7 +414,7 @@
             <column />
             <column>
               <button content="C">
-                <onClick>final.Text="C"; yourAnswer.Style.Visibility = "visible";</onClick>
+                <onClick>final.Text="C"; chooseButton(3);</onClick>
               </button>
             </column>
             <column>
@@ -397,7 +429,7 @@
             <column />
             <column>
               <button content="Replace with Next Letter">
-                <onClick>final.Text="Replace with Next Letter"; yourAnswer.Style.Visibility = "visible";</onClick>
+                <onClick>final.Text="Replace with Next Letter"; chooseButton(Replace with Next Number);;</onClick>
               </button>
             </column>
             <column>
@@ -409,20 +441,23 @@
           </row> -->
         </table>
       </stack>
-      <p name="yourAnswer" style="finalStyle collapsed">
-        <i>You selected:</i>
-      </p>
-      <p name="final" style="finalStyle" />
+      <p name="final" style="collapsed" />
+      <stack name="hint" style="collapsed">
+        <p>  $MC_hint$ </p>
+      </stack>
       <stack name="solution" style="collapsed">
         <p> $MC_solution$ </p>
       </stack>
       <button content="Check Answer">
         <onClick>
-          solution.Style.Visibility = "visible";
           if string.lower(final.Text) == string.lower(answer.Text) then
           stack.table.row.column.mark.ImageSource = "curriculumThemePack/right.png";
+          solution.Style.Visibility = "visible";
+          hint.Style.Visibility = "collapsed";
           else
           stack.table.row.column.mark.ImageSource = "curriculumThemePack/wrong.png";
+          solution.Style.Visibility = "collapsed";
+          hint.Style.Visibility = "visible";
           end
         </onClick>
       </button>
@@ -450,17 +485,22 @@
         <Literal>
           <ID>TF_answer</ID>
           <ToolTip>Replace with True or False. Be careful not to include accidental spaces or characters.</ToolTip>
-          <Default>Enter True or False here. Do not include extra characters.</Default>
+          <Default>Enter answer here as a full word: True or False. Do not include extra characters.</Default>
         </Literal>      
         <Literal>
           <ID>TF_solution</ID>
-          <ToolTip>Insert solution or hint inside the following section. We recommend not including the final answer in your solution.</ToolTip>
-          <Default>Enter full solution or hint to the question inside this stack. You can include images, equations, etc.</Default>
+          <ToolTip>Insert solution inside the following section. We recommend not including the final answer in your solution.</ToolTip>
+          <Default>Enter full solution to the question inside this stack. You can include images, equations, etc.</Default>
+        </Literal>
+        <Literal>
+          <ID>TF_hint</ID>
+          <ToolTip>Insert hint inside the following section. We recommend not including the final answer in your solution.</ToolTip>
+          <Default>Enter hint to the question inside this stack. You can include images, equations, etc.</Default>
         </Literal>
       </Declarations>
       <Code Language="XML">
         <![CDATA[
-        <stack style="questionAnswer">
+      <stack style="questionAnswer">
       <p style="title qNum"></p>
       <table grid="false" widths="10% 90%">
         <row>
@@ -470,36 +510,57 @@
       </table>
       <p style="title">ANSWER</p>
       <p name="answer" style="collapsed">$TF_answer$</p>
+      <script>
+         local deselectedBack = color.silver;
+         local selectedBack = color.rgb(50, 133, 184);
+
+         local function chooseButton(i)
+         if i == 0 then
+         table:Child(1):Child(2).trueButt.Style.BackgroundColor = selectedBack;
+         table:Child(1):Child(3).falseButt.Style.BackgroundColor = deselectedBack;
+         elseif i == 1 then
+         table:Child(1):Child(2).trueButt.Style.BackgroundColor = deselectedBack;
+         table:Child(1):Child(3).falseButt.Style.BackgroundColor = selectedBack;
+         end
+         end
+      </script> 
       <table name="table" grid="false" widths="10% 40% 40% 10%">
+        <style name="buttons">
+          <foreground color="white" />
+          <background color="silver" />
+        </style>
         <row name="row">
           <column><image src="curriculumThemePack\answer.png" inspect="false" /></column>
           <column>
             <button content="True" style="TF" name="trueButt">
-              <onClick>final.Text = "True"; yourAnswer.Style.Visibility = "visible";</onClick>
+              <onClick>final.Text = "True"; chooseButton(0);</onClick>
             </button>
           </column>
           <column>
             <button content="False" style="TF" name="falseButt">
-              <onClick>final.Text = "False"; yourAnswer.Style.Visibility = "visible";</onClick>
+              <onClick>final.Text = "False"; chooseButton(1);</onClick>
             </button>
           </column>
           <column name="column"><image name="mark" src="curriculumThemePack\invisible.png" inspect="false" /></column>
         </row>
       </table>
-      <p name="yourAnswer" style="finalStyle collapsed">
-        <i>You selected:</i>
-      </p>
-      <p name="final" style="finalStyle" />
+      <p name="final" style="collapsed" />
       <stack name="solution" style="collapsed">
         <p> $TF_solution$ </p>
       </stack>
+      <stack name="hint" style="collapsed">
+        <p> $TF_hint$ </p>
+      </stack>
       <button content="Check Answer">
         <onClick>
-          solution.Style.Visibility = "visible";
           if string.lower(final.Text) == string.lower(answer.Text) then
           table.row.column.mark.ImageSource = "curriculumThemePack/right.png";
+          solution.Style.Visibility = "visible";
+          hint.Style.Visibility = "collapsed";
           else
           table.row.column.mark.ImageSource = "curriculumThemePack/wrong.png";
+          solution.Style.Visibility = "collapsed";
+          hint.Style.Visibility = "visible";
           end
         </onClick>
       </button>
@@ -544,10 +605,16 @@
         <![CDATA[ 
       <stack style="questionAnswer">
       <p style="title qNum"></p>
-      <stack orientation="horizontal">
-        <image src="curriculumThemePack\question.png" style="icon" inspect="false" />
-        <p>$Fill_question$ Replace "blank" words with $$ \underline{\hspace{1.5cm}} $$.</p>
-      </stack>
+      <table widths="10% 90%" grid="false">
+        <row>
+          <column>
+            <image src="curriculumThemePack\question.png" inspect="false" />
+          </column>
+          <column>
+            <p>$Fill_question$ Replace "blank" words with $$ \underline{\hspace{1.5cm}} $$.</p>
+          </column>
+        </row>
+      </table>
       <p style="title">ANSWER</p>
       <p name="answer1" style="collapsed">$Fill_answer1$</p>
       <!-- If there is only one "blank" in the question, delete the next line: -->
@@ -555,17 +622,25 @@
       <!-- For each additional "blank", insert the following code:
         <p name="answer3" style="collapsed">Enter answer here.</p>
         Be sure to rename each subsequent paragraph, i.e. name="answer4", etc. -->
-      <stack orientation="horizontal" name="stack">
-        <image src="curriculumThemePack\answer.png" style="iconSol" inspect="false" />
-        <stack name="input">
-          <textField name="input1" placeholder="Insert First Blank Here"/>
-          <textField name="input2" placeholder="Insert Second Blank Here"/>
-          <!-- For each additional "blank", insert the following code:
-            <textField name="input3" placeholder="Insert Third Blank Here"/>
-            Be sure to rename each subsequent textField, i.e. name="input4", etc. -->
-        </stack>
-        <image name="mark" src="curriculumThemePack\invisible.png" style="iconSol" inspect="false" />
-      </stack>
+      <table name="table" widths="10% 80% 10%" grid="false">
+        <row>
+          <column>
+            <image src="curriculumThemePack\answer.png" inspect="false" />
+          </column>
+          <column>
+            <stack name="input">
+              <textField name="input1" placeholder="Insert First Blank Here" />
+              <textField name="input2" placeholder="Insert Second Blank Here" />
+              <!-- For each additional "blank", insert the following code:
+        <textField name="input3" placeholder="Insert Third Blank Here"/>
+        Be sure to rename each subsequent textField, i.e. name="input4", etc. -->
+            </stack>
+          </column>
+          <column>
+            <image name="mark" src="curriculumThemePack\invisible.png" inspect="false" />
+          </column>
+        </row>
+      </table>
       <stack name="solution" style="collapsed">
         <p> $Fill_solution$ </p>
       </stack>
@@ -573,13 +648,13 @@
         <onClick>
           solution.Style.Visibility = "visible";
           <!-- If there is only one "blank", the "if statement" needs to be reduced to: 
-                 if stack.input1.Text == answer1.Text then -->
+                 if table:Child(1):Child(2).input.input1.Text == answer1.Text then -->
           <!-- If there are extra "blanks", the "if statement" needs to be appended to include a check for each additional correct answer. Use 'and' in between each additional check. For example, 
-                 if stack.input1.Text == answer1.Text and stack.input2.Text == answer2.Text and stack.input3.Text == answer3.Text and stack.input4.Text == answer4.Text then -->
-          if stack.input.input1.Text == answer1.Text and stack.input.input2.Text == answer2.Text then
-          stack.mark.ImageSource = "curriculumThemePack/right.png";
+                 if table:Child(1):Child(2).input.input1.Text == answer1.Text and table:Child(1):Child(2).input.input2.Text == answer2.Text and table:Child(1):Child(2).input.input3.Text == answer3.Text and table:Child(1):Child(2).input.input4.Text == answer4.Text then -->
+          if table:Child(1):Child(2).input.input1.Text == answer1.Text and table:Child(1):Child(2).input.input2.Text == answer2.Text then
+          table:Child(1):Child(3).mark.ImageSource = "curriculumThemePack/right.png";
           else
-          stack.mark.ImageSource = "curriculumThemePack/wrong.png";
+          table:Child(1):Child(3).mark.ImageSource = "curriculumThemePack/wrong.png";
           end
         </onClick>
       </button>
